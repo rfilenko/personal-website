@@ -1,5 +1,6 @@
-import { Recipe } from "@/app/lib/interface";
 import { getSlugData } from "@/app/lib/sanity";
+import { Button } from "@/app/components/Button";
+import { Recipe } from "@/app/lib/interface";
 
 import { urlFor } from "@/app/lib/sanityImageUrl";
 import { PortableText } from "@portabletext/react";
@@ -26,7 +27,12 @@ export default async function RecipePage({params}: {
     };
 
     return (
-        <div className="xl:divide-y xl:divide-gray-200 xl:dark:divide-gray-700">
+        <>
+            <div>
+                <Button href="/recipes">Back to recipes</Button>
+            </div>
+     
+            <div className="xl:divide-y xl:divide-gray-200 xl:dark:divide-gray-700">
             <header className="pt-6 xl:pb-6">
                 <div className="space-y-1 text-left">
                     <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-3xl sm:leading-10 md:text-4xl md:leading-14">
@@ -55,6 +61,7 @@ export default async function RecipePage({params}: {
                     <div>0.50 cup quick cook oatmeal (use gluten free oats for gf)</div>
                 </div>
             </div>
-        </div>
+            </div>
+        </>
     );
 }
