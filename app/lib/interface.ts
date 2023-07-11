@@ -11,6 +11,7 @@ export interface Post {
 export interface Recipe {
     title: string;
     overview: string;
+    preparation: string;
     content: any;
     categories: [string];
     _id: string;

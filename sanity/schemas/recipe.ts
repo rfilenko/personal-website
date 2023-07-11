@@ -14,6 +14,11 @@ export default {
             title: 'Overview',
         },
         {
+            name: 'preparation',
+            type: 'string',
+            title: 'Preparation',
+        },
+        {
             name: 'slug',
             type: 'slug',
             title: 'Slug',
