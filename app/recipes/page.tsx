@@ -1,6 +1,6 @@
+import { Button } from '../components/Button';
 import {  Recipe } from '../lib/interface';
 import { getRecipeData } from '../lib/sanity';
-import Image from "next/image";
 import Link from 'next/link';
 
 export default async function Home() {
@@ -8,12 +8,9 @@ export default async function Home() {
 
   return (
     <div className="divide-y divide-gray-200 dark:divide-gray-700">
-      <Link
-        href={`/`}
-        prefetch
-        className="flex text-xl font-bold leading-4 tracking-tight text-gray-900 dark:text-gray-100 sm:text-2xl sm:leading-4 md:text-4xl md:leading-8 mb-4"
-      >Back home</Link>
-      <ul>
+      <Button href="/">Back home</Button>
+
+      <ul className='mt-4'>
         {data.map((recipe) => (
           <li key={recipe._id} className="py-4">
             <article className="space-y-2 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0">   
