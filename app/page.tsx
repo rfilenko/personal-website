@@ -1,21 +1,15 @@
 import { Post } from './lib/interface';
-import { client } from './lib/sanity';
+import { getPostData } from './lib/sanity';
 import Link from 'next/link';
 
-async function getData() {
-  const query = `*[_type == 'post']`;
-  const data = await client.fetch(query)
-  return data
-  
-}
 export default async function Home() {
-  const data = await getData() as Post[]
+  const data = await getPostData() as Post[]
 
   return (
     <div className="divide-y divide-gray-200 dark:divide-gray-700">
       <div className="pt-6 pb-8 flex gap-4 justify-between">
         <h1 className="flex text-xl font-bold leading-4 tracking-tight text-gray-900 dark:text-gray-100 sm:text-2xl sm:leading-4 md:text-4xl md:leading-8">
-          All Posts
+          Notes
         </h1>
         <Link
           href={`/recipes`}
@@ -24,7 +18,7 @@ export default async function Home() {
         >Recipes</Link>
       </div>
 
-      <ul>
+      <ul className='note-list'>
         {data.map((post) => (
           <li key={post._id} className="py-4">
             <article className="space-y-2 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0">  

@@ -11,9 +11,23 @@ export const client = createClient({
     useCdn: true,
 });
 
+export async function getPostData() {
+    const query = `*[_type == 'post']`;
+    const data = await client.fetch(query)
+    return data
+}
+
 export async function getRecipeData() {
     const query = `*[_type == 'recipe']`;
     const data = await client.fetch(query)
     
     return data
+}
+
+export async function getSlugData(slug: string) {
+    const query = `*[_type == "recipe" && slug.current == "${slug}"][0]`;
+
+    const data = await client.fetch(query);
+
+    return data;
 }

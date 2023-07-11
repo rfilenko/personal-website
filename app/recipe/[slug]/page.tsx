@@ -1,22 +1,15 @@
 import { Recipe } from "@/app/lib/interface";
-import { client } from "@/app/lib/sanity";
+import { getSlugData } from "@/app/lib/sanity";
 
 import { urlFor } from "@/app/lib/sanityImageUrl";
 import { PortableText } from "@portabletext/react";
 import Image from "next/image";
 
-async function getData(slug: string) {
-    const query = `*[_type == "recipe" && slug.current == "${slug}"][0]`;
-
-    const data = await client.fetch(query);
-
-    return data;
-}
-
 export default async function RecipePage({params}: {
     params: { slug: string };
 }) {
-    const data = (await getData(params.slug)) as Recipe;
+    
+    const data = (await getSlugData(params.slug)) as Recipe;
 
     const PortableTextComponent = {
         types: {
@@ -45,7 +38,7 @@ export default async function RecipePage({params}: {
                 </div>
             </header>
 
-            {data.categories && <div className="mt-4 font-bold">Category: <div className="inline-flex gap-2">{data.categories?.map(cat => <span className="font-normal text-red-500">{cat}</span>)}</div></div>}
+            {data.categories && <div className="mt-4 font-bold">Category: <div className="inline-flex gap-2">{data.categories?.map(cat => <span key={cat} className="font-normal text-red-500">{cat}</span>)}</div></div>}
 
             <div className="divide-y divide-gray-200 pb-2 dark:divide-gray-700 xl:divide-y-0">
                 <div className="divide-y divide-gray-200 dark:divide-gray-700 xl:col-span-3 xl:row-span-2 xl:pb-0">
