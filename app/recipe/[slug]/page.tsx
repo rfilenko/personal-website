@@ -6,6 +6,17 @@ import { urlFor } from "@/app/lib/sanityImageUrl";
 import { PortableText } from "@portabletext/react";
 import Image from "next/image";
 
+export async function generateMetadata({ params }: {
+    params: { slug: string };
+}) {
+    const data = (await getSlugData(params.slug)) as Recipe;
+    
+    return {
+        title: `Recipe - ${data.title}`,
+        description: data.overview
+    }
+}
+
 export default async function RecipePage({params}: {
     params: { slug: string };
 }) {
@@ -44,8 +55,8 @@ export default async function RecipePage({params}: {
                     </div>
                     
                 {/* preparation */}
-                {data.preparation && <div className="preparation mt-2 text-gray-400 text-sm flex flex-wrap items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4 inline-block mr-2">
+                {data.preparation && <div className="preparation mt-2 text-gray-400 text-sm flex flex-wrap items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4 inline-block">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                     <span className="text-black font-bold dark:text-white">Preparation:</span>
