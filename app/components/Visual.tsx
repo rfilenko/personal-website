@@ -1,5 +1,5 @@
-type VisualProps = React.ReactElement & {
-    variant: string;
+type VisualProps = {
+    variant?: string;
 };
 
 export function Visual({ variant }: VisualProps) {
