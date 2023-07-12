@@ -26,6 +26,23 @@ body {
     rgb(var(--background-start-rgb));
 } */
 
+.recipe-list {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+.recipe-item {
+  border: 1px solid #eaeaea;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, .04);
+  border-radius:8px;
+}
+.recipe-item:hover {
+  box-shadow: 0 6px 14px rgba(0, 0, 0, .08);
+}
+.recipe-image > *:not(img)  {
+  display: none;
+}
+
 .desc ul {
   list-style: decimal;
 }
