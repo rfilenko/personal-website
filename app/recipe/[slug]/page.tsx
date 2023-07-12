@@ -5,6 +5,7 @@ import { Recipe } from "@/app/lib/interface";
 import { urlFor } from "@/app/lib/sanityImageUrl";
 import { PortableText } from "@portabletext/react";
 import Image from "next/image";
+import { Visual } from "@/app/components/Visual";
 
 export async function generateMetadata({ params }: {
     params: { slug: string };
@@ -65,7 +66,16 @@ export default async function RecipePage({params}: {
             </header>
                 
             {/* categories */}
-            {data.categories && <div className="mt-2 font-bold">Category: <div className="inline-flex gap-2">{data.categories?.map(cat => <span key={cat} className="font-normal text-red-500">{cat}</span>)}</div></div>}
+                {data.categories && (
+                    <div className="mt-2 font-bold">Category:
+                        <div className="inline-flex gap-2">{data.categories?.map(cat => (
+                            <>
+                                {cat == 'dessert' ? <Visual variant='dessert' /> : <Visual variant='main' /> }
+                            <span key={cat} className="ml-2 font-normal text-red-500">{cat}</span>
+                        </>
+                        ))}</div>
+                    </div>)
+            }
 
             <div className="divide-y divide-gray-200 pb-2 dark:divide-gray-700 xl:divide-y-0">
                 <div className="divide-y divide-gray-200 dark:divide-gray-700 xl:col-span-3 xl:row-span-2 xl:pb-0">

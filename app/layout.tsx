@@ -23,7 +23,7 @@ export default function RootLayout({
       >
         <Providers>
           <Navbar />
-          <main className="relative max-w-5xl mx-auto p-4 sm:p-8 lg:p-16">
+          <main className="relative max-w-5xl mx-auto p-4 sm:p-8 lg:pt-8 lg:p-16 lg:pt-2 overflow-hidden">
             {children}
           </main>
           <Footer/>
