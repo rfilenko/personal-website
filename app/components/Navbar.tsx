@@ -3,7 +3,7 @@ import Themebutton from "./ThemeButton";
 
 export default function Navbar() {
     return (
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-5xl mx-auto px-4 sm:px-8 lg:px-16">
             <div className="flex justify-between h-16">
                 <div className="flex justify-between items-center w-full">
                     <Link href="/">
