@@ -25,3 +25,12 @@ body {
     )
     rgb(var(--background-start-rgb));
 } */
+
+.desc ul {
+  list-style: decimal;
+}
+
+.desc li::marker {
+  color: rgb(20 184 166 / 1);
+  font-weight: bold;
+}
