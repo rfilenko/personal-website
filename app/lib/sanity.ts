@@ -1,15 +1,18 @@
 import { createClient } from "next-sanity";
+import createImageUrlBuilder from "@sanity/image-url";
 
-const projectId = "y6bljokk";
-const dataset = "production";
-const apiVersion = "2023-01-01";
+import { projectId, dataset, apiVersion } from '@/environment'
 
-export const client = createClient({
+export const config = {
     projectId,
     dataset,
     apiVersion,
     useCdn: true,
-});
+}
+
+export const client = createClient(config);
+
+// export const urlFor = (source) => createImageUrlBuilder(config).image(source)
 
 export async function getPostData() {
     const query = `*[_type == 'post']`;
@@ -20,14 +23,11 @@ export async function getPostData() {
 export async function getRecipeData() {
     const query = `*[_type == 'recipe']`;
     const data = await client.fetch(query)
-    
     return data
 }
 
 export async function getSlugData(slug: string) {
     const query = `*[_type == "recipe" && slug.current == "${slug}"][0]`;
-
     const data = await client.fetch(query);
-
     return data;
 }

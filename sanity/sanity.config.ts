@@ -1,15 +1,14 @@
 import {defineConfig} from 'sanity'
 import {deskTool} from 'sanity/desk'
 import {visionTool} from '@sanity/vision'
-import {schemaTypes} from './schemas'
+import { schemaTypes } from './schemas'
 
 export default defineConfig({
   name: 'default',
-  title: 'BlogNextJS',
+  title: 'HomeAppNextJS',
 
   projectId: 'y6bljokk',
   dataset: 'production',
-
   plugins: [deskTool(), visionTool()],
 
   schema: {
