@@ -53,7 +53,8 @@ export default {
             of: [{ type: 'string' }],
             options: {
                 layout: 'instructions'
-            }
+            },
+            validation: Rule => Rule.required(),
         },
         {
             title: 'Categories',
@@ -70,13 +71,6 @@ export default {
                 {
                     type: 'string',
                 }
-                // {
-                //     type: 'categories',
-                //     to: [
-                //         { type: 'dessert' },
-                //         { type: 'main' }
-                //     ]
-                // }
             ]
         },
     ],

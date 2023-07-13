@@ -88,12 +88,12 @@ export default async function RecipePage({ params }: {
                         </div>
                     </div>
 
-                    <div className="mt-4 desc prose">
+                    {data.instructions && <div className="mt-4 desc prose">
                         <h2 className="text-2xl font-semibold mb-0">Instructions:</h2>
                         <ul className="instructions-list">
-                            {data.instructions.map(i => <li className="instructions-item">{i}</li>)}
+                            {data.instructions?.map(i => <li key={i} className="instructions-item">{i}</li>)}
                         </ul>
-                    </div>
+                    </div>}
                 </div>
             </div>
         </>
