@@ -7,8 +7,8 @@ export default function Navbar() {
             <div className="flex justify-between h-16">
                 <div className="flex justify-between items-center w-full">
                     <Link href="/">
-                        <h1 className="text-2xl font-medium">
-                          Home<span className="text-teal-500">App</span>
+                        <h1 className="text-2xl font-bold">
+                            Home<span className="text-teal-500">App</span>
                         </h1>
                     </Link>
 
