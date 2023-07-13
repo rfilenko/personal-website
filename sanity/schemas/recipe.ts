@@ -47,6 +47,15 @@ export default {
             ],
         },
         {
+            name: 'instructions',
+            title: 'Instructions:',
+            type: 'array',
+            of: [{ type: 'string' }],
+            options: {
+                layout: 'instructions'
+            }
+        },
+        {
             title: 'Categories',
             name: 'categories',
             type: 'array',
