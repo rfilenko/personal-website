@@ -2,12 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
-/* :root {
+:root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+
+  --tw-gradient-to: #111;
+  --tw-gradient-from: #1a1a1a;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
+/* 
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
@@ -25,18 +30,23 @@ body {
     )
     rgb(var(--background-start-rgb));
 } */
+
+
 body {
   display: flex;
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
 }
-body > * {
+
+body>* {
   width: 100%;
 }
+
 main {
   flex-grow: 3;
 }
+
 .footer:before {
   content: '';
   position: absolute;
@@ -47,31 +57,38 @@ main {
   width: 100%;
   background-image: linear-gradient(139deg, rgb(13 148 136 / 1), rgb(239 68 68 / 1));
 }
+
 .visual {
   border: none;
   transform: rotate(15deg);
 }
+
 .visual svg {
   width: 10rem;
   height: 10rem;
 }
+
 .recipe-list {
   display: grid;
   grid-gap: 20px;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 }
+
 .recipe-item {
   border: 1px solid #eaeaea;
   box-shadow: 0 4px 6px rgba(0, 0, 0, .04);
-  border-radius:8px;
+  border-radius: 8px;
 }
+
 .recipe-item img {
   pointer-events: none;
 }
+
 .recipe-item:hover {
   box-shadow: 0 6px 14px rgba(0, 0, 0, .08);
 }
-.recipe-image > *:not(img)  {
+
+.recipe-image>*:not(img) {
   display: none;
 }
 
@@ -79,15 +96,17 @@ main {
   list-style: decimal;
 }
 
-.desc li::marker {
+.desc li::marker,
+.ingridients li::marker {
   color: rgb(20 184 166 / 1);
   font-weight: bold;
 }
 
 @media screen and (min-width:600px) {
   .visual {
-      transform: rotate(45deg);
-    }
+    transform: rotate(45deg);
+  }
+
   .visual svg {
     width: 30rem;
     height: 30rem;
