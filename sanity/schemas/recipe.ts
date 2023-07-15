@@ -47,6 +47,16 @@ export default {
             ],
         },
         {
+            name: 'ingridients',
+            type: 'array',
+            title: 'Ingridients',
+            of: [
+                {
+                    type: 'block',
+                }
+            ],
+        },
+        {
             name: 'instructions',
             title: 'Instructions:',
             type: 'array',

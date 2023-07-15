@@ -13,6 +13,7 @@ export interface Recipe {
     overview: string;
     preparation: string;
     content: any;
+    ingridients: any;
     instructions: [string];
     categories: [string];
     _id: string;

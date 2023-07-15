@@ -5,6 +5,7 @@ import { Recipe } from "@/app/lib/interface";
 import { urlFor } from "@/app/lib/sanityImageUrl";
 import { PortableText } from "@portabletext/react";
 
+import Servings from "@/app/components/Servings";
 import { Button } from "@/app/components/Button";
 import { Visual } from "@/app/components/Visual";
 
@@ -27,17 +28,33 @@ export default async function RecipePage({ params }: {
 
     const PortableTextComponent = {
         types: {
-            image: ({ value }: { value: any }) => (
-                <Image
+            block: ({ value }: { value: any }) => {
+                return <div className="ingridients-value">{value.children[0].text}</div>
+            },
+            image: ({ value }: { value: any }) => {
+                return <Image
                     src={urlFor(value).url()}
                     alt="Image"
                     className="rounded-lg"
                     width={400}
                     height={400}
                 />
-            ),
+            },
         },
-    };
+    }
+
+    const IngridientsComponent = {
+        block: ({ value }: { value: any }) => {
+            const textBlockValue = value.children[0].text
+            const numberValue = parseInt(textBlockValue, 10)
+            return <Servings value={numberValue}> servings</Servings>
+        },
+        list: {
+            bullet: ({ children }: { children: React.ReactNode }) => <div className="Ingridients">
+                <ul className="ingridients-list mt-0">{children}</ul>
+            </div>
+        },
+    }
 
     return (
         <>
@@ -79,21 +96,32 @@ export default async function RecipePage({ params }: {
                 <div className="">
                     <div className="xl:col-span-3 xl:row-span-2 xl:pb-0">
                         <div className="desc prose max-w-none mt-2 dark:prose-invert">
-                            <PortableText
-                                value={data.content}
-                                components={PortableTextComponent}
-                            />
+                            <div className="prose max-w-none mt-2 dark:prose-invert">
+                                <PortableText
+                                    value={data.content}
+                                    components={PortableTextComponent}
+                                />
+                                {data.ingridients && (
+                                    <div className="ingridients">
+                                        <h2 className="mt-1 mb-1">Ingridients:</h2>
+                                        <PortableText
+                                            value={data.ingridients}
+                                            components={IngridientsComponent}
+                                        />
+                                    </div>
+                                )}
+                            </div>
                         </div>
-                    </div>
 
-                    {data.instructions && <div className="mt-8 desc prose">
-                        <h2 className="text-2xl font-semibold mb-0">Instructions:</h2>
-                        <ul className="instructions-list">
-                            {data.instructions?.map(i => <li key={i} className="instructions-item">{i}</li>)}
-                        </ul>
-                    </div>}
+                        {data.instructions && <div className="mt-4 pt-2 desc prose border-none">
+                            <h2 className="text-2xl font-semibold mb-0">Instructions:</h2>
+                            <ul className="instructions-list">
+                                {data.instructions?.map(i => <li key={i} className="instructions-item">{i}</li>)}
+                            </ul>
+                        </div>}
+                    </div>
                 </div>
             </div>
         </>
-    );
+    )
 }
