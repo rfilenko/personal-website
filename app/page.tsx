@@ -1,3 +1,4 @@
+import Image from "next/image";
 
 export const metadata = {
 	title: "Coming soon page",
@@ -6,11 +7,16 @@ export const metadata = {
 
 export default async function Home() {
 	return (
-		<main className="relative flex flex-col items-center justify-center w-full h-full overflow-hidden bg-gradient-to-r from-gray-850 to-gray-900 ">
-			<div className='font-semibold flex flex-col gap-2 justify-between items-center'>
-				<h1 className='my-2 text-3xl text-teal-600'>Coming soon</h1>
-				<div className='text-base text-secondary text-gray-300'>Something is coming up... Stay tuned</div>
+		<>
+			<div className="bg-visual absolute w-full h-full inset-0">
+				<Image src="/gradient.jpg" alt="visual" fill sizes='100vw' />
 			</div>
-		</main>
+			<main className="relative flex flex-col items-center justify-center w-full h-full overflow-hidden">
+				<div className='font-semibold flex flex-col gap-2 justify-between items-center'>
+					<h1 className='my-2 font-sans text-6xl text-white'>Coming soon</h1>
+					<div className='text-base text-secondary text-gray-400'>Something is coming up... Stay tuned</div>
+				</div>
+			</main>
+		</>
 	)
 }
