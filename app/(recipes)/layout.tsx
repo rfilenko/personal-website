@@ -1,6 +1,7 @@
 import Footer from "@/app/components/Footer";
 import Navbar from "@/app/components/Navbar";
 import { Providers } from "@/app/components/Providers";
+import { ScrollTopButton } from "../components/ScrollTopButton";
 
 export const metadata = {
   title: "HomeApp",
@@ -19,6 +20,7 @@ export default function RecipeLayout({
         {children}
       </main>
       <Footer />
+      <ScrollTopButton />
     </Providers>
   );
 }

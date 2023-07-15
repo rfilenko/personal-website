@@ -7,6 +7,7 @@
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
 
+  --clr-teal: rgb(13 148 136 / 1);
   --tw-gradient-to: #111;
   --tw-gradient-from: #1a1a1a;
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
@@ -61,7 +62,7 @@ main {
   display: block;
   height: 2px;
   width: 100%;
-  background-image: linear-gradient(139deg, rgb(13 148 136 / 1), rgb(239 68 68 / 1));
+  background-image: linear-gradient(139deg, var(--clr-teal), rgb(239 68 68 / 1));
 }
 
 .visual {
@@ -255,6 +256,69 @@ footer span {
   font-weight: 700;
 }
 
+/* scroll button */
+.up-btn {
+  margin: 0 20px 30px 0;
+  padding: 0 15px;
+  border: 2px solid;
+  border-radius: 10rem;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+  line-height: 40px;
+  max-height: 40px;
+  white-space: nowrap;
+  user-select: none;
+  transition: all .15s;
+  cursor: pointer;
+  color: var(--clr-teal);
+  background-color: #fff;
+  width: 60px;
+  height: 40px;
+}
+
+.up-icon {
+  --size: 14px;
+  width: var(--size);
+  height: var(--size);
+}
+
+.up-icon>svg {
+  fill: currentColor;
+  -o-object-fit: contain;
+  object-fit: contain;
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+  overflow: visible;
+}
+
+.scroll-to-top {
+  opacity: 0;
+  visibility: hidden;
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
+  transition: all .2s linear;
+}
+
+.scroll-to-top.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
 @media screen and (min-width:980px) {
   .c-grid {
     grid-template-rows: 300px;
@@ -271,5 +335,10 @@ footer span {
 
   .row-span2 {
     aspect-ratio: 300/612;
+  }
+
+  .scroll-to-top {
+    bottom: 30px;
+    right: 20px;
   }
 }
