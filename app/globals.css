@@ -49,6 +49,9 @@ main {
   flex-grow: 3;
 }
 
+.bg-visual {
+  height: 100dvh;
+}
 
 .footer:before {
   content: '';

@@ -13,7 +13,7 @@ export default async function Home() {
 			</div>
 			<main className="relative flex flex-col items-center justify-center w-full h-full overflow-hidden">
 				<div className='font-semibold flex flex-col gap-2 justify-between items-center'>
-					<h1 className='my-2 font-sans text-6xl text-white'>Coming soon</h1>
+					<h1 className='my-2 font-sans text-4xl md:text-6xl text-white'>Coming soon</h1>
 					<div className='text-base text-secondary text-gray-400'>Something is coming up... Stay tuned</div>
 				</div>
 			</main>
