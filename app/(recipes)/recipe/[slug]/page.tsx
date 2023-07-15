@@ -3,7 +3,7 @@ import Image from "next/image";
 import { getSlugData } from "@/app/lib/sanity";
 import { Recipe } from "@/app/lib/interface";
 import { urlFor } from "@/app/lib/sanityImageUrl";
-import { PortableText } from "@portabletext/react";
+import { PortableText, PortableTextReactComponents } from "@portabletext/react";
 
 import Servings from "@/app/components/Servings";
 import { Button } from "@/app/components/Button";
@@ -54,7 +54,7 @@ export default async function RecipePage({ params }: {
                 <ul className="ingridients-list mt-0">{children}</ul>
             </div>
         },
-    }
+    } as Partial<PortableTextReactComponents>
 
     return (
         <>
