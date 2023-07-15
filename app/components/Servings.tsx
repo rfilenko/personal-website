@@ -10,8 +10,8 @@ type ServingsProps = {
 
 export default function Servings({ children, value }: ServingsProps) {
     const [val, setVal] = useState(0);
-    const refPlus = useRef(null);
-    const refMinus = useRef(null);
+    const refPlus = useRef<HTMLElement>(null);
+    const refMinus = useRef<HTMLElement>(null);
 
     useEffect(() => {
         setVal(value)
@@ -46,8 +46,10 @@ export default function Servings({ children, value }: ServingsProps) {
                 return prev
 
             } else {
-                refPlus.current.removeAttribute("disabled")
-                refPlus.current.classList.remove("disabled:opacity-25")
+                if (refPlus.current) {
+                    refPlus.current.removeAttribute("disabled")
+                    refPlus.current.classList.remove("disabled:opacity-25")
+                }
                 return prev - 1
             }
         }

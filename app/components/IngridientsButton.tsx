@@ -5,7 +5,7 @@ import React from 'react';
 type IngridientsButtonProps = {
     children?: React.ReactNode
     handleClick: () => void
-    buttonRef?: React.MutableRefObject<any>
+    buttonRef?: React.Ref<any>
 }
 
 export const IngridientsButton = ({ children, handleClick, buttonRef }: IngridientsButtonProps) => {
