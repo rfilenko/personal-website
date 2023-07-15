@@ -29,9 +29,9 @@ export default async function Home() {
 
     return (
         <div className="">
-            <div className='font-semibold flex gap-2 justify-between items-center'>
+            <div className='font-semibold flex flex-wrap gap-2 justify-between items-center'>
                 <h1 className='my-2 text-3xl'>List of recipes</h1>
-                <div className='text-2xl'>Total: <span>{data.length} recipes</span></div>
+                <div className='text-xl md:text-2xl'>Total: <span className='font-bold'>{data.length} </span>recipes</div>
             </div>
 
             <ul className='recipe-list mt-4'>
