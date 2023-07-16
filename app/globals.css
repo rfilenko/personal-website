@@ -11,6 +11,7 @@
   --tw-gradient-to: #111;
   --tw-gradient-from: #1a1a1a;
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+--swiper-pagination-bottom: 20px
 }
 
 /* 
