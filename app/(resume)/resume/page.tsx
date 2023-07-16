@@ -19,17 +19,17 @@ export default async function ResumePage() {
     }
 
     return (
-        <div className='max-w-5xl mx-auto relative w-full py-8 text-white'>
+        <div className='md:max-w-5xl mx-auto relative w-full py-2 md:py-8 px-4 md:px-8 text-white'>
             <ResumeHeader />
 
-            <ResumeSection sectionId="section-about" className="about grid grid-cols-2 place-items-center py-4 px-16">
+            <ResumeSection sectionId="section-about" className="about relative grid md:grid-cols-2 place-items-center py-4 px-4 md:px-16 min-h-[24rem]">
                 <div className='about-content tracking-tight'>
                     <h1 className='font-sans font-extrabold text-5xl leading-12'>Roman Filenko</h1>
                     <h2 className='font-sans text-3xl leading-10 font-bold text-teal-400'>Frontend Developer<span className='text-white'>.</span></h2>
                     <p className='text-gray-200'>I code and build stuff on internet, create digital experiences for the web.</p>
                 </div>
 
-                <div className='about-image'>
+                <div className='about-image absolute top-8 md:top-0 right-0 -z-10 w-[225px] md:w-[300px] rounded-full overflow-hidden md:relative'>
                     <Image src="/handsome.jpg" width={300} height={350} alt="Handsome me" />
                 </div>
             </ResumeSection>
@@ -39,11 +39,11 @@ export default async function ResumePage() {
 
                 <div className='grid sm:grid-cols-2 sm:gap-8 md:gap-12'>
                     {data.map((job) => {
-                        return <article className='job-item' key={job._id}>
+                        return <article className='job-item mb-8' key={job._id}>
                             <div className="group relative grid pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
                                 <div className="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-slate-800/50 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover:drop-shadow-lg">
                                 </div>
-                                <header className="z-10 mb-2 mt-1 text-xs font-semibold uppercase tracking-wide text-slate-500 sm:col-span-2" aria-label={job.date}>{job.date}</header>
+                                <header className="z-10 mb-0 mt-1 text-xs font-semibold uppercase tracking-wide text-slate-500 sm:col-span-2" aria-label={job.date}>{job.date}</header>
                                 <div className="z-10 sm:col-span-6">
                                     <h3 className="font-medium leading-snug text-slate-200">
                                         <div>

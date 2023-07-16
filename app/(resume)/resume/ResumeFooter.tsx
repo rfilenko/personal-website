@@ -3,10 +3,10 @@ import { FaGithub, FaDev } from "react-icons/fa6";
 import { BiLogoGmail } from "react-icons/bi";
 
 export default function ResumeFooter() {
-    return <footer className='footer flex gap-4 justify-between items-start'>
-        <div className='flex flex-col gap-4 justify-between'>
+    return <footer className='footer flex flex-col md:flex-row gap-4 justify-between items-start'>
+        <div className='flex md:flex-col gap-4 justify-between'>
             <p className='shrink-0'>Roman Filenko &copy; <span>{new Date().getFullYear()}</span></p>
-            <ul className="social flex gap-1">
+            <ul className="social flex gap-4 md:gap-2">
                 <li>
                     <a href="https://github.com/rfilenko"><FaGithub size={20} /></a>
                 </li>

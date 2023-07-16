@@ -15,9 +15,9 @@ export default function ResumeHeader() {
     };
 
     return (
-        <header className='flex text-white justify-end py-4'>
+        <header className='flex text-white w-full justify-center py-4'>
             <nav>
-                <ul className='flex gap-4'>
+                <ul className='flex justify-center gap-4'>
                     {navItems.map(item => {
                         return <li key={item}>
                             <a href={`#section-${item}`} className='capitalize' onClick={handleScroll}>{item}</a>
