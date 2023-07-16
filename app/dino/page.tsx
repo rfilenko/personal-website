@@ -14,9 +14,6 @@ import 'swiper/css/scrollbar';
 import { Scrollbar, Pagination } from 'swiper/modules';
 
 export default function Dino() {
-    const playClickHandler = (e) => {
-        // console.log(e)
-    }
     return <>
         <div className="px-4 md:pt-10">
             <Swiper
@@ -33,7 +30,6 @@ export default function Dino() {
                             <div className="">
                                 <ReactAudioPlayer
                                     src="dino/velociraptor/velociraptor.mp3" controls
-                                    onPlay={playClickHandler}
                                     className="block w-[160px] md:w-[300px]"
                                 />
                             </div>
