@@ -8,6 +8,7 @@ import { PortableText, PortableTextReactComponents } from "@portabletext/react";
 import Servings from "@/app/components/Servings";
 import { Button } from "@/app/components/Button";
 import { Visual } from "@/app/components/Visual";
+import { BsCardChecklist } from "react-icons/bs";
 
 export async function generateMetadata({ params }: {
     params: { slug: string };
@@ -103,7 +104,7 @@ export default async function RecipePage({ params }: {
                                 />
                                 {data.ingridients && (
                                     <div className="ingridients">
-                                        <h2 className="mt-1 mb-1">Ingridients:</h2>
+                                        <h2 className="mt-1 mb-1 flex gap-2 items-center"> <BsCardChecklist className="text-gray-400" size={20} /> Ingridients:</h2>
                                         <PortableText
                                             value={data.ingridients}
                                             components={IngridientsComponent}
