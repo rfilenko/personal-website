@@ -29,9 +29,10 @@ export default async function Home() {
 
     return (
         <div className="">
-            <div className='font-semibold flex flex-wrap gap-2 justify-between items-center'>
+            <div className='font-semibold flex flex-wrap md:flex-nowrap gap-2 justify-between items-center'>
                 <h1 className='my-2 text-3xl'>List of recipes</h1>
-                <div className='text-xl md:text-2xl'>Total: <span className='font-bold'>{data.length} </span>recipes</div>
+                <div className='text-xl md:text-2xl flex gap-2 item-center'>Available: <p className='inline-flex justify-center items-center bg-orange-500 p-1 rounded-full w-8 h-8 outline -outline-offset-2 outline-gray-200'>
+                    <span className='text-gray-700 text-sm font-bold'>{data.length}</span></p></div>
             </div>
 
             <ul className='recipe-list mt-4'>

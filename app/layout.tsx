@@ -1,4 +1,3 @@
-
 import "./globals.css";
 import { Inter } from "next/font/google";
 
@@ -11,10 +10,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body
-        // className={` ${inter.className} bg-white text-black dark:bg-gray-900 dark:selection:bg-gray-900 dark:text-white h-full selection:bg-gray-50`}
-        className={` ${inter.className} bg-slate-900 text-red h-full selection:bg-gray-50`}
-      >
+      <body className={` ${inter.className}`}>
         {children}
       </body>
     </html >

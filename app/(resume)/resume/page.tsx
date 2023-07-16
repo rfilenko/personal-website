@@ -22,20 +22,20 @@ export default async function ResumePage() {
         <div className='md:max-w-5xl mx-auto relative w-full py-2 md:py-8 px-4 md:px-8 text-white'>
             <ResumeHeader />
 
-            <ResumeSection sectionId="section-about" className="about relative grid md:grid-cols-2 place-items-center py-4 px-4 md:px-16 min-h-[24rem]">
-                <div className='about-content tracking-tight'>
+            <ResumeSection sectionId="section-about" className="about relative grid md:grid-cols-2 place-items-center py-4 px-2 md:px-16 min-h-[24rem]">
+                <div className='about-content tracking-tight relative top-16 md:top-0 z-20'>
                     <h1 className='font-sans font-extrabold text-5xl leading-12'>Roman Filenko</h1>
                     <h2 className='font-sans text-3xl leading-10 font-bold text-teal-400'>Frontend Developer<span className='text-white'>.</span></h2>
                     <p className='text-gray-200'>I code and build stuff on internet, create digital experiences for the web.</p>
                 </div>
 
-                <div className='about-image absolute top-8 md:top-0 right-0 -z-10 w-[225px] md:w-[300px] rounded-full overflow-hidden md:relative'>
+                <div className='about-image absolute top-8 md:top-0 right-0 z-10 w-[225px] md:w-[300px] rounded-full overflow-hidden md:relative'>
                     <Image src="/handsome.jpg" width={300} height={350} alt="Handsome me" />
                 </div>
             </ResumeSection>
 
             <ResumeSection sectionId="section-experience">
-                <h2 className='mb-8 text-2xl font-sans font-semibold'>Experience</h2>
+                <h2 className='mb-2 md:mb-8 text-2xl font-sans font-semibold'>Experience</h2>
 
                 <div className='grid sm:grid-cols-2 sm:gap-8 md:gap-12'>
                     {data.map((job) => {
