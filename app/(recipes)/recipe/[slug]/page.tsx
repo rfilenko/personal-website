@@ -9,6 +9,7 @@ import Servings from "@/app/components/Servings";
 import { Button } from "@/app/components/Button";
 import { Visual } from "@/app/components/Visual";
 import { BsCardChecklist } from "react-icons/bs";
+import { FaUtensils } from "react-icons/fa";
 
 export async function generateMetadata({ params }: {
     params: { slug: string };
@@ -104,7 +105,7 @@ export default async function RecipePage({ params }: {
                                 />
                                 {data.ingridients && (
                                     <div className="ingridients">
-                                        <h2 className="mt-1 mb-1 flex gap-2 items-center"> <BsCardChecklist className="text-gray-400" size={20} /> Ingridients:</h2>
+                                        <h2 className="mt-1 mb-1 flex gap-2 items-center"> <BsCardChecklist className="text-gray-700" size={20} /> Ingridients:</h2>
                                         <PortableText
                                             value={data.ingridients}
                                             components={IngridientsComponent}
@@ -115,7 +116,7 @@ export default async function RecipePage({ params }: {
                         </div>
 
                         {data.instructions && <div className="mt-4 pt-2 desc prose border-none dark:prose-invert">
-                            <h2 className="text-2xl font-semibold mb-0">Instructions:</h2>
+                            <h2 className="text-2xl font-semibold mb-0 flex gap-2 items-center"> <FaUtensils className="text-gray-700" size={20} /> Instructions:</h2>
                             <ul className="instructions-list">
                                 {data.instructions?.map(i => <li key={i} className="instructions-item">{i}</li>)}
                             </ul>
