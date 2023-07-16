@@ -22,3 +22,14 @@ export interface Recipe {
     };
     _createdAt: string;
 }
+export interface Job {
+    date: string;
+    position: string;
+    company: string;
+    link: string;
+    description: string;
+    content: any;
+    tech: [string];
+    _id: string;
+    _createdAt: string;
+}

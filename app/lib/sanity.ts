@@ -26,6 +26,12 @@ export async function getRecipeData() {
     return data
 }
 
+export async function getJobData() {
+    const query = `*[_type == 'job'] | order(_createdAt asc)`;
+    const data = await client.fetch(query)
+    return data
+}
+
 export async function getSlugData(slug: string) {
     const query = `*[_type == "recipe" && slug.current == "${slug}"][0]`;
     const data = await client.fetch(query);

@@ -1,4 +1,4 @@
 import recipe from "./recipe";
-import post from "./post";
+import job from "./job";
 
-export const schemaTypes = [post, recipe]
+export const schemaTypes = [recipe, job]
