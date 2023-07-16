@@ -35,9 +35,11 @@ export default async function Home() {
             </div>
 
             <ul className='recipe-list mt-4'>
-                {data.map((recipe) => (
+                {data.map((recipe) => {
 
-                    <li key={recipe._id} className="recipe-item p-4">
+                    const categorie = recipe.categories[0]
+
+                    return <li key={recipe._id} className="recipe-item p-4">
                         <Link
                             href={`/recipe/${recipe.slug.current}`}
                             prefetch
@@ -47,7 +49,7 @@ export default async function Home() {
                                 <h3 className="text-xl font-bold leading-6 tracking-tight text-gray-900 dark:text-gray-100">
                                     {recipe.title}
                                 </h3>
-                                <span className='text-white right-0 text-xs font-bold bg-red-500 p-1 rounded self-start'>{recipe.categories[0]}</span>
+                                <span className={`text-white right-0 text-xs font-bold ${categorie == 'dessert' ? 'bg-red-500' : 'bg-teal-500'} p-1 rounded self-start`}>{recipe.categories[0]}</span>
                             </div>
 
                             <div className="recipe-image relative overflow-hidden h-[150px] shrink-0 grow-3">
@@ -62,7 +64,8 @@ export default async function Home() {
                             </p>
                         </Link>
                     </li>
-                ))}
+                }
+                )}
             </ul>
         </div>
     )

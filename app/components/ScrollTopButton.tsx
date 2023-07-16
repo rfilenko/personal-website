@@ -30,7 +30,7 @@ export const ScrollTopButton = ({ children }: { children?: React.ReactNode }) =>
         });
     };
     return (
-        <button className="scroll-to-top up-btn up-btn-default m-0 py-10 px-20" ref={buttonRef} onClick={handleGoToTop}>
+        <button className="scroll-to-top up-btn up-btn-default m-0 py-10 px-20 z-10 bg-white dark:bg-transparent" ref={buttonRef} onClick={handleGoToTop}>
             <span className="sr-only">
                 Scroll to top
             </span>

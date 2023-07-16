@@ -18,9 +18,11 @@ export default function RecipeLayout({
       <Navbar />
       <main className="recipe-layout max-w-5xl mx-auto relative p-4 sm:p-8 lg:p-16 lg:pt-2 overflow-hidden">
         {children}
+        <div className="absolute right-2 md:right-16 bottom-0 w-[60px]">
+          <ScrollTopButton />
+        </div>
       </main>
       <Footer />
-      <ScrollTopButton />
     </Providers>
   );
 }
