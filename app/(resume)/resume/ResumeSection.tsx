@@ -1,8 +1,4 @@
-'use client'
-
-import React from 'react'
-
-export default function Section({ children, sectionId, className }: {
+export default function ResumeSection({ children, sectionId, className }: {
     children: React.ReactNode
     sectionId: string
     className?: string

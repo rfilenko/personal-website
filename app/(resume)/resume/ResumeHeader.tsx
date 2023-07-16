@@ -1,10 +1,8 @@
 'use client'
 
-import React from 'react'
-
 const navItems = ['about', 'experience', 'projects', 'contact']
 
-export default function Header() {
+export default function ResumeHeader() {
     const handleScroll = (event: React.SyntheticEvent) => {
         event.preventDefault()
         const value = (event.target as HTMLElement).textContent

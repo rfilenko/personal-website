@@ -1,7 +1,3 @@
-'use client'
-
-import React from 'react'
-
 export default function Pill({ children, name }: {
     children?: React.ReactNode
     name: string

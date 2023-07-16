@@ -1,10 +1,11 @@
 import Image from 'next/image'
-import Section from './Section'
-import Header from "./Header";
+import ResumeSection from './ResumeSection'
+import ResumeHeader from "./ResumeHeader";
 import Pill from './Pill';
 import { getJobData } from '@/app/lib/sanity';
 import { Job } from '@/app/lib/interface';
 import { PortableText } from '@portabletext/react';
+import ResumeFooter from './ResumeFooter';
 
 export default async function ResumePage() {
     const data = await getJobData() as Job[]
@@ -19,21 +20,21 @@ export default async function ResumePage() {
 
     return (
         <div className='max-w-5xl mx-auto relative w-full py-8 text-white'>
-            <Header />
+            <ResumeHeader />
 
-            <Section sectionId="section-about" className="hero grid grid-cols-2 place-items-center py-4 px-16">
-                <div className='hero-content tracking-tight'>
+            <ResumeSection sectionId="section-about" className="about grid grid-cols-2 place-items-center py-4 px-16">
+                <div className='about-content tracking-tight'>
                     <h1 className='font-sans font-extrabold text-5xl leading-12'>Roman Filenko</h1>
                     <h2 className='font-sans text-3xl leading-10 font-bold text-teal-400'>Frontend Developer<span className='text-white'>.</span></h2>
                     <p className='text-gray-200'>I code and build stuff on internet, create digital experiences for the web.</p>
                 </div>
 
-                <div className='hero-image'>
+                <div className='about-image'>
                     <Image src="/handsome.jpg" width={300} height={350} alt="Handsome me" />
                 </div>
-            </Section>
+            </ResumeSection>
 
-            <Section sectionId="section-experience">
+            <ResumeSection sectionId="section-experience">
                 <h2 className='mb-8 text-2xl font-sans font-semibold'>Experience</h2>
 
                 <div className='grid sm:grid-cols-2 sm:gap-8 md:gap-12'>
@@ -76,15 +77,17 @@ export default async function ResumePage() {
                         </article>
                     })}
                 </div>
-            </Section>
+            </ResumeSection>
 
-            <Section sectionId="section-projects">
+            {/* <ResumeSection sectionId="section-projects">
                 <h2 className='mb-8 text-2xl font-sans font-semibold'>Projects</h2>
-            </Section>
+            </ResumeSection>
 
-            <Section sectionId="section-contact">
+            <ResumeSection sectionId="section-contact">
                 <h2 className='mb-8 text-2xl font-sans font-semibold'>Contact</h2>
-            </Section>
-        </div>
+            </ResumeSection> */}
+
+            <ResumeFooter />
+        </div >
     )
 }
