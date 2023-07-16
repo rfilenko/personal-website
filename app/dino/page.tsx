@@ -57,7 +57,7 @@ export default function Dino() {
                             <div className="w-6 shrink-1">
                                 <ReactAudioPlayer
                                     src="dino/triceratops/triceratops.mp3" controls
-                                    onPlay={playClickHandler} className="block w-[160px]"
+                                    className="block w-[160px]"
                                 />
                             </div>
                         </header>
@@ -84,7 +84,6 @@ export default function Dino() {
                             <div className="">
                                 <ReactAudioPlayer
                                     src="dino/velociraptor/velociraptor.mp3" controls
-                                    onPlay={playClickHandler}
                                     className="block w-[160px]"
                                 />
                             </div>
@@ -112,7 +111,7 @@ export default function Dino() {
                             <div className="w-6 shrink-1">
                                 <ReactAudioPlayer
                                     src="dino/triceratops/triceratops.mp3" controls
-                                    onPlay={playClickHandler} className="block w-[160px]"
+                                    className="block w-[160px]"
                                 />
                             </div>
                         </header>
