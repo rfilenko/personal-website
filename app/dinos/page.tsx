@@ -1,5 +1,5 @@
-import { Dino } from "../lib/interface";
-import { getDinoData } from "../lib/sanity";
+import { Dino } from "@/app/lib/interface";
+import { getDinoData } from "@/app/lib/sanity";
 
 import SwiperComponent from "./SwiperComponent";
 

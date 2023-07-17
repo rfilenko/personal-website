@@ -11,7 +11,7 @@ import 'swiper/css/scrollbar';
 // import './styles.css';
 import { Scrollbar } from 'swiper/modules';
 
-export default function SwiperComponent({ dinoData }: Dino[]) {
+export default function SwiperComponent({ children, dinoData }: { children?: React.ReactNode, dinoData: Dino[] }) {
 
     return <Swiper
         scrollbar={{ hide: true, draggable: true }}
@@ -20,6 +20,7 @@ export default function SwiperComponent({ dinoData }: Dino[]) {
         className="swiperWrap"
         style={{ width: '100%', height: '100%' }}
     >
+        {children}
         {dinoData.map((dino: Dino) => {
             const dinoSlug = dino.name.toLowerCase()
             const dinoImgUrl = `/dino/${dinoSlug}.png`
