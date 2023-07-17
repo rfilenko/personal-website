@@ -1,24 +1,44 @@
 export default {
-    name: 'post',
+    name: 'dino',
     type: 'document',
-    title: 'Post',
+    title: 'Dino',
     fields: [
         {
-            name: 'title',
+            name: 'name',
             type: 'string',
-            title: 'Title',
+            title: 'Name',
         },
         {
-            name: 'overview',
+            name: 'type',
             type: 'string',
-            title: 'Overview',
+            title: 'Type',
+        },
+        {
+            name: 'color',
+            type: 'string',
+            title: 'Color',
+        },
+        {
+            name: 'diet',
+            type: 'string',
+            title: 'Diet',
+        },
+        {
+            name: 'food',
+            type: 'string',
+            title: 'Food',
+        },
+        {
+            name: 'dimensions',
+            type: 'string',
+            title: 'Dimensions',
         },
         {
             name: 'slug',
             type: 'slug',
             title: 'Slug',
             options: {
-                source: 'title',
+                source: 'name',
             },
         },
         {

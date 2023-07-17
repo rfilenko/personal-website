@@ -1,12 +1,19 @@
-export interface Post {
-    title: string;
-    overview: string;
+export interface Dino {
+    name: string;
+    type: string;
+    color: string;
+    diet: string;
+    food: string;
+    dimensions: string;
     content: any;
     _id: string;
     slug: {
         current: string;
     };
     _createdAt: string;
+    _type: string;
+    _rev: string;
+    dinoData?: any[];
 }
 export interface Recipe {
     title: string;

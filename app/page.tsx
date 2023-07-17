@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export const metadata = {
 	title: "Coming soon page",
-	description: "Projecti is loading...",
+	description: "Project is loading...",
 };
 
 export default async function Home() {

@@ -11,14 +11,7 @@ export const config = {
 }
 
 export const client = createClient(config);
-
 // export const urlFor = (source) => createImageUrlBuilder(config).image(source)
-
-export async function getPostData() {
-    const query = `*[_type == 'post']`;
-    const data = await client.fetch(query)
-    return data
-}
 
 export async function getRecipeData() {
     const query = `*[_type == 'recipe']`;
@@ -28,6 +21,12 @@ export async function getRecipeData() {
 
 export async function getJobData() {
     const query = `*[_type == 'job'] | order(_createdAt asc)`;
+    const data = await client.fetch(query)
+    return data
+}
+
+export async function getDinoData() {
+    const query = `*[_type == 'dino']`;
     const data = await client.fetch(query)
     return data
 }
