@@ -33,6 +33,10 @@ body {
     rgb(var(--background-start-rgb));
 } */
 
+.swiper-slide {
+  height: auto;
+  align-self: stretch;
+}
 .main-footer:before {
   content: '';
   position: absolute;

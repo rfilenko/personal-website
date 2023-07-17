@@ -7,32 +7,29 @@ import ReactAudioPlayer from 'react-audio-player';
 // Import Swiper
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-
-import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 // import './styles.css';
-import { Scrollbar, Pagination } from 'swiper/modules';
+import { Scrollbar } from 'swiper/modules';
 
-export default function Dino() {
+export default function DinoPage() {
     return <>
-        <div className="px-4 md:pt-10">
+        <h2 className="mt-4 font-extrabold text-3xl text-center text-teal-400">Dinosaurs </h2>
+        <div className="px-4 md:pt-8">
             <Swiper
                 scrollbar={{ hide: true, draggable: true }}
-                modules={[Scrollbar, Pagination]}
+                modules={[Scrollbar]}
                 spaceBetween={25}
-                pagination={{ clickable: true }}
-                className="mySwiper"
+                className="swiperWrap"
+                style={{ width: '100%', height: '100%' }}
             >
-                <SwiperSlide>
+                <SwiperSlide style={{ minHeight: '100%' }}>
                     <div className="border-2 border-red-400 dino m-4 mx-auto p-4 px-4 rounded-md max-w-lg bg-red-200">
-                        <header className="flex gap-4 items-center mb-4">
+                        <header className="flex flex-col gap-2 items-center mb-4">
                             <h2 className="font-extrabold text-2xl">Velociraptor</h2>
-                            <div className="">
-                                <ReactAudioPlayer
-                                    src="dino/velociraptor.mp3" controls
-                                    className="block w-[160px] md:w-[300px]"
-                                />
-                            </div>
+                            <ReactAudioPlayer
+                                src="dino/velociraptor.mp3" controls
+                                className="block md:w-[300px]"
+                            />
                         </header>
 
                         <Image src="/dino/velociraptor.png" width={300} height={350} alt="velociraptor" />
@@ -54,14 +51,12 @@ export default function Dino() {
                 </SwiperSlide>
                 <SwiperSlide>
                     <div className="border-2 border-green-300 dino m-4 mx-auto p-4 px-4 rounded-md max-w-lg bg-green-200">
-                        <header className="flex gap-4 items-center mb-4">
+                        <header className="flex flex-col gap-2 items-center mb-4">
                             <h2 className="font-extrabold text-2xl">Triceratops</h2>
-                            <div className="w-6 shrink-1">
                                 <ReactAudioPlayer
                                     src="dino/triceratops.mp3" controls
-                                    className="block w-[160px] md:w-[300px]"
-                                />
-                            </div>
+                                className="block md:w-[300px]"
+                            />
                         </header>
 
                         <Image src="/dino/triceratops.png" width={300} height={350} alt="triceratops" />
@@ -83,14 +78,8 @@ export default function Dino() {
                 </SwiperSlide>
                 <SwiperSlide>
                     <div className="border-2 border-blue-400 dino m-4 mx-auto p-4 px-4 rounded-md max-w-lg bg-blue-300">
-                        <header className="flex gap-4 items-center mb-4">
+                        <header className="flex flex-col gap-2 items-center mb-4">
                             <h2 className="font-extrabold text-2xl">Nothosaurus</h2>
-                            <div className="w-6 shrink-1">
-                                <ReactAudioPlayer
-                                    src="dino/Nothosaurus.mp3" controls
-                                    className="block w-[160px] md:w-[300px]"
-                                />
-                            </div>
                         </header>
 
                         <Image src="/dino/nothosaurus.png" width={300} height={350} alt="Nothosaurus" />
@@ -105,21 +94,20 @@ export default function Dino() {
                             </p>
                             <p><span className="font-bold">Food:</span> squid, fish and even terrestrial animals</p>
                             <p><span className="font-bold">When it lived: </span>
-                                Quaternary period</p>
-                            <p><span className="font-bold">Found in: </span> water inhabitant roaming through North Africa, China, Israel, and Russia coastal waters more than 240 million years ago</p>
+                                Quaternary period, more than 240 million years ago</p>
+                            <p><span className="font-bold">Found in: </span> water inhabitant roaming through North Africa, China, Israel, and Russia coastal waters</p>
                         </div>
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
                     <div className="border-2 border-red-400 dino m-4 mx-auto p-4 px-4 rounded-md max-w-lg bg-red-200">
-                        <header className="flex gap-4 items-center mb-4">
+
+                        <header className="flex flex-col gap-2 items-center mb-4">
                             <h2 className="font-extrabold text-2xl">T-Rex</h2>
-                            <div className="">
-                                <ReactAudioPlayer
-                                    src="dino/trex.mp3" controls
-                                    className="block w-[160px] md:w-[300px]"
-                                />
-                            </div>
+                            <ReactAudioPlayer
+                                src="dino/t-rex.mp3" controls
+                                className="block md:w-[300px]"
+                            />
                         </header>
 
                         <Image src="/dino/tyrannosaurus.png" width={300} height={350} alt="t-rex" />
@@ -141,14 +129,12 @@ export default function Dino() {
                 </SwiperSlide>
                 <SwiperSlide>
                     <div className="border-2 border-slate-500 dino m-4 mx-auto p-4 px-4 rounded-md max-w-lg bg-slate-300">
-                        <header className="flex gap-4 items-center mb-4">
+                        <header className="flex flex-col gap-2 items-center mb-4">
                             <h2 className="font-extrabold text-2xl">Archaeopteryx</h2>
-                            <div className="w-6 shrink-1">
-                                <ReactAudioPlayer
-                                    src="dino/archaeopteryx.mp3" controls
-                                    className="block w-[160px] md:w-[300px]"
-                                />
-                            </div>
+                            <ReactAudioPlayer
+                                src="dino/archaeopteryx.mp3" controls
+                                className="block md:w-[300px]"
+                            />
                         </header>
 
                         <Image src="/dino/archaeopteryx.png" width={300} height={350} alt="archaeopteryx" />
@@ -172,12 +158,6 @@ export default function Dino() {
                     <div className="border-2 border-green-300 dino m-4 mx-auto p-4 px-4 rounded-md max-w-lg bg-green-200">
                         <header className="flex gap-4 items-center mb-4">
                             <h2 className="font-extrabold text-2xl">Mammoth</h2>
-                            <div className="w-6 shrink-1">
-                                <ReactAudioPlayer
-                                    src="dino/mammoth.mp3" controls
-                                    className="block w-[160px] md:w-[300px]"
-                                />
-                            </div>
                         </header>
 
                         <Image src="/dino/mammoth.png" width={300} height={350} alt="mammoth" />
@@ -197,7 +177,6 @@ export default function Dino() {
                         </div>
                     </div>
                 </SwiperSlide>
-
             </Swiper>
         </div>
     </>
