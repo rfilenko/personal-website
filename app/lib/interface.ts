@@ -5,14 +5,13 @@ export interface Dino {
     diet: string;
     food: string;
     dimensions: string;
+    lived: string;
+    found: string;
     content: any;
     _id: string;
     slug: {
         current: string;
     };
-    _createdAt: string;
-    _type: string;
-    _rev: string;
     dinoData?: any[];
 }
 export interface Recipe {

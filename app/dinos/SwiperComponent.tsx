@@ -51,7 +51,7 @@ export default function SwiperComponent({ children, dinoData }: { children?: Rea
                         )}
                     </header>
                     <div className="relative flex justify-center">
-                        <span className={`w-[200px] h-[200px] bg-${dino.color} absolute -z-0 rounded-full border-4 border-gray-300`}></span>
+                        <span className={`w-[200px] h-[200px] bg-${dino.color}-700 absolute -z-0 rounded-full border-4 border-gray-300`}></span>
                         <Image src={dinoImgUrl} className="z-10" priority width={300} height={300} style={{ objectFit: "cover" }} alt={dino.name} />
                     </div>
 
@@ -64,9 +64,10 @@ export default function SwiperComponent({ children, dinoData }: { children?: Rea
                             {dino.dimensions}
                         </p>
                         <p><span className="font-bold">Food:</span>  {dino.food}</p>
-                        <p><span className="font-bold">When it lived: </span>
-                            Late Cretaceous, 74-70 million years ago</p>
-                        <p><span className="font-bold">Found in: </span> Mongolia</p>
+
+                        {dino.lived && <p><span className="font-bold">When it lived: </span> {dino.lived}</p>}
+                        {dino.found && <p> <span className="font-bold">Found in: </span> {dino.found}</p>}
+
                     </div>
                 </div>
             </SwiperSlide>

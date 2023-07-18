@@ -34,6 +34,16 @@ export default {
             title: 'Dimensions',
         },
         {
+            name: 'lived',
+            type: 'string',
+            title: 'Lived',
+        },
+        {
+            name: 'found',
+            type: 'string',
+            title: 'Found',
+        },
+        {
             name: 'slug',
             type: 'slug',
             title: 'Slug',
