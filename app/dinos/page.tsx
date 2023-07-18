@@ -10,7 +10,8 @@ export default async function DinoPage() {
         const arr = array.sort(() => .5 - Math.random())
         return arr
     }
-    const shuffledDinoData = shuffleArray(dinoData)
+    // const shuffledDinoData = shuffleArray(dinoData)
+    const shuffledDinoData = dinoData
 
     return <>
         <h2 className="mt-4 font-extrabold text-3xl text-center text-teal-400">DinoPark:

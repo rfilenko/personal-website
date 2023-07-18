@@ -12,6 +12,7 @@ import 'swiper/css';
 import 'swiper/css/scrollbar';
 // import './styles.css';
 import { Scrollbar } from 'swiper/modules';
+import AudioButton from "./AudioButton";
 
 export default function SwiperComponent({ children, dinoData }: { children?: React.ReactNode, dinoData: Dino[] }) {
     const [dinosArr, setDinosArr] = useState<Dino[]>(dinoData)
@@ -39,6 +40,7 @@ export default function SwiperComponent({ children, dinoData }: { children?: Rea
         {children}
             {dinosArr && dinosArr.map((dino: Dino) => {
                 const dinoSlug = dino.name.toLowerCase()
+                const dinoAudio = `audio-${dino.name.toLowerCase()}`
                 const dinoImgUrl = `/dino/${dinoSlug}.png`
                 const imgVisualStyles = `w-[200px] h-[200px] absolute -z-0 rounded-full border-4 border-gray-300 bg-${dino.color}-500`
 
@@ -48,11 +50,15 @@ export default function SwiperComponent({ children, dinoData }: { children?: Rea
                         <h2 className="font-extrabold text-2xl">{dino.name}</h2>
                         {(dinoSlug != 'nothosaurus') && (
                             <>
-                                <ReactAudioPlayer
-                                    src={`dino/${dinoSlug}.mp3`} controls volume={0.5}
-                                    className="block md:w-[300px]"
-                                />
-                                <button className="relative flex p-4 bg-teal-500 rounded-full shadow-md animate-aura" onClick={handleAudioClick}><BiPlayCircle color='white' size={24} /></button>
+                                <div className="w-1/2 mx-auto flex gap-2 justify-between">
+                                    <ReactAudioPlayer
+                                        src={`dino/${dinoSlug}.mp3`} volume={0.5}
+                                        className="block md:w-[300px]"
+                                    />
+                                    <button className="relative flex p-4 bg-teal-500 rounded-full shadow-md animate-play" onClick={handleAudioClick}><BiPlayCircle color='white' size={24} /></button>
+
+                                    <AudioButton dinoAudio={dinoAudio} />
+                                </div>
                             </>
                         )
                         }
