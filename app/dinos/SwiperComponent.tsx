@@ -1,10 +1,11 @@
 "use client"
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Image from "next/image";
 import ReactAudioPlayer from 'react-audio-player';
 import { Dino } from "@/app/lib/interface";
 import { TbMeat, TbLeaf } from "react-icons/tb";
+import { BiPlayCircle } from "react-icons/bi";
 // Import Swiper
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -14,6 +15,20 @@ import { Scrollbar } from 'swiper/modules';
 
 export default function SwiperComponent({ children, dinoData }: { children?: React.ReactNode, dinoData: Dino[] }) {
     const [dinosArr, setDinosArr] = useState<Dino[]>(dinoData)
+
+    const handleAudioClick = (e) => {
+        const audioPlayer = e.currentTarget.previousElementSibling
+
+        if (audioPlayer && audioPlayer.localName == 'audio') {
+            audioPlayer.play()
+            setTimeout(() => {
+                audioPlayer.pause()
+                audioPlayer.currentTime = 0
+            }, 5000)
+        }
+
+    }
+    // const audioPlayer = useRef<HTMLAudioElement>(null);
 
     return <>
         <Swiper
@@ -33,11 +48,18 @@ export default function SwiperComponent({ children, dinoData }: { children?: Rea
                 <div className={`border-2 border-${dino.color}-400 dino m-4 mx-auto p-4 px-4 rounded-md max-w-lg`}>
                     <header className="flex flex-col gap-2 items-center mb-4">
                         <h2 className="font-extrabold text-2xl">{dino.name}</h2>
-                        {(dinoSlug != 'nothosaurus') && <ReactAudioPlayer
-                            src={`dino/${dinoSlug}.mp3`} controls
-                            className="block md:w-[300px]"
-                        />
+                        {(dinoSlug != 'nothosaurus') && (
+                            <>
+                                {/* <audio src={`dino/${dinoSlug}.mp3`} ref={audioPlayer} controls /> */}
+                                <ReactAudioPlayer
+                                    src={`dino/${dinoSlug}.mp3`} controls volume={0.5}
+                                    className="block md:w-[300px]"
+                                />
+                                <button className="relative flex p-4 bg-teal-500 rounded-full shadow-md animate-aura" onClick={handleAudioClick}><BiPlayCircle color='white' size={24} /></button>
+                            </>
+                        )
                         }
+
                     </header>
                     <div className="relative flex justify-center">
                         <span className={imgVisualStyles} style={{ backgroundColor: `${dino.color}` }}></span>

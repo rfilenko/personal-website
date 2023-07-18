@@ -32,6 +32,19 @@ body {
     )
     rgb(var(--background-start-rgb));
 } */
+.animate-aura {
+  animation: aura 1s ease-in-out infinite;
+}
+
+@keyframes aura {
+  0% {
+    box-shadow: 0 0 0 -1px rgba(13, 194, 172, .75), 0 0 0 -1px rgba(13, 194, 172, .5), 0 0 0 -1px rgba(13, 194, 172, .25)
+  }
+
+  to {
+    box-shadow: 0 0 0 8px transparent, 0 0 0 16px transparent, 0 0 0 24px transparent
+  }
+}
 
 .swiper-slide {
   height: auto;
