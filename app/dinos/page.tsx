@@ -13,7 +13,9 @@ export default async function DinoPage() {
     const shuffledDinoData = shuffleArray(dinoData)
 
     return <>
-        <h2 className="mt-4 font-extrabold text-3xl text-center text-teal-400">Dinosaurs</h2>
+        <h2 className="mt-4 font-extrabold text-3xl text-center text-teal-400">DinoPark:
+            <span className="text-gray-500">{dinoData.length}</span>
+        </h2>
 
         <div className="px-4 md:pt-8">
             <SwiperComponent dinoData={shuffledDinoData} />
