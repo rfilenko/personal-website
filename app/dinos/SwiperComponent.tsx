@@ -1,6 +1,6 @@
 "use client"
 
-import { useRef, useState } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import ReactAudioPlayer from 'react-audio-player';
 import { Dino } from "@/app/lib/interface";
@@ -16,8 +16,8 @@ import { Scrollbar } from 'swiper/modules';
 export default function SwiperComponent({ children, dinoData }: { children?: React.ReactNode, dinoData: Dino[] }) {
     const [dinosArr, setDinosArr] = useState<Dino[]>(dinoData)
 
-    const handleAudioClick = (e) => {
-        const audioPlayer = e.currentTarget.previousElementSibling
+    const handleAudioClick = (event: React.SyntheticEvent) => {
+        const audioPlayer = event.currentTarget.previousElementSibling as HTMLAudioElement
 
         if (audioPlayer && audioPlayer.localName == 'audio') {
             audioPlayer.play()
@@ -28,8 +28,6 @@ export default function SwiperComponent({ children, dinoData }: { children?: Rea
         }
 
     }
-    // const audioPlayer = useRef<HTMLAudioElement>(null);
-
     return <>
         <Swiper
         scrollbar={{ hide: true, draggable: true }}
@@ -50,7 +48,6 @@ export default function SwiperComponent({ children, dinoData }: { children?: Rea
                         <h2 className="font-extrabold text-2xl">{dino.name}</h2>
                         {(dinoSlug != 'nothosaurus') && (
                             <>
-                                {/* <audio src={`dino/${dinoSlug}.mp3`} ref={audioPlayer} controls /> */}
                                 <ReactAudioPlayer
                                     src={`dino/${dinoSlug}.mp3`} controls volume={0.5}
                                     className="block md:w-[300px]"
