@@ -11,7 +11,6 @@ import 'swiper/css';
 import 'swiper/css/scrollbar';
 // import './styles.css';
 import { Scrollbar } from 'swiper/modules';
-import ShuffleButton from "./ShuffleButton";
 
 export default function SwiperComponent({ children, dinoData }: { children?: React.ReactNode, dinoData: Dino[] }) {
     function shuffleArray(array: Dino[]) {
@@ -26,9 +25,6 @@ export default function SwiperComponent({ children, dinoData }: { children?: Rea
     }, [dinosArr])
 
     return <>
-
-        {/* <button onClick={() => shuffleArray(dinosArr)}>Shuffle </button> */}
-
         <Swiper
         scrollbar={{ hide: true, draggable: true }}
         modules={[Scrollbar]}
