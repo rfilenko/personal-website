@@ -15,7 +15,6 @@ import { Scrollbar } from 'swiper/modules';
 import AudioButton from "./AudioButton";
 import SoundButton from "./SoundButton";
 import Pattern from "./Pattern";
-import VideoPlayer from "./VideoPlayer";
 
 export default function SwiperComponent({ children, dinoData }: { children?: React.ReactNode, dinoData: Dino[] }) {
     const [dinosArr, setDinosArr] = useState<Dino[]>(dinoData)
