@@ -7,7 +7,7 @@ import pattern from "@/public/pattern.svg";
 import { TbMeat, TbLeaf } from "react-icons/tb";
 
 // Import Swiper
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/scrollbar';
 // import './styles.css';
@@ -19,26 +19,23 @@ import Pattern from "./Pattern";
 export default function SwiperComponent({ children, dinoData }: { children?: React.ReactNode, dinoData: Dino[] }) {
     const [dinosArr, setDinosArr] = useState<Dino[]>(dinoData)
 
-    const handleAudioClick = (event: React.SyntheticEvent) => {
-        const audioPlayer = event.currentTarget.previousElementSibling as HTMLAudioElement
-
-        if (audioPlayer && audioPlayer.localName == 'audio') {
-            audioPlayer.play()
-            setTimeout(() => {
-                audioPlayer.pause()
-                audioPlayer.currentTime = 0
-            }, 5000)
-        }
-
+    const handleSlideChange = () => {
+        const audioEl = document.querySelectorAll('audio')
+        Array.from(audioEl).forEach(el => {
+            el.pause()
+            el.currentTime = 0
+        });
     }
+
     return <>
         <Swiper
-        scrollbar={{ hide: true, draggable: true }}
-        modules={[Scrollbar]}
-        spaceBetween={25}
-        className="swiperWrap"
+            onSlideChange={() => handleSlideChange()}
+            scrollbar={{ hide: true, draggable: true }}
+            modules={[Scrollbar]}
+            spaceBetween={25}
+            className="swiperWrap"
             style={{ width: '100%', height: '100%' }} 
-    >
+        >
         {children}
             {dinosArr && dinosArr.map((dino: Dino) => {
                 const dinoSlug = dino.name.toLowerCase()
@@ -52,7 +49,7 @@ export default function SwiperComponent({ children, dinoData }: { children?: Rea
                         <h2 className="font-extrabold text-2xl">{dino.name}</h2>
                         {(dinoSlug != 'nothosaurus') && (
                             <>
-                                <div className="w-1/2 mx-auto flex gap-2 justify-between">
+                                <div className="w-full mx-auto flex gap-2 justify-between">
                                     <SoundButton dinoSlug={dinoSlug} />
                                     <AudioButton dinoAudio={dinoAudio} />
                                 </div>
