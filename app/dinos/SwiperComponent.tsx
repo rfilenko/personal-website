@@ -1,23 +1,23 @@
 "use client"
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { Dino } from "@/app/lib/interface";
-import pattern from "@/public/pattern.svg";
 import { TbMeat, TbLeaf } from "react-icons/tb";
 
 // Import Swiper
-import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/scrollbar';
-// import './styles.css';
 import { Scrollbar } from 'swiper/modules';
+
 import AudioButton from "./AudioButton";
 import SoundButton from "./SoundButton";
 import Pattern from "./Pattern";
 
 export default function SwiperComponent({ children, dinoData }: { children?: React.ReactNode, dinoData: Dino[] }) {
     const [dinosArr, setDinosArr] = useState<Dino[]>(dinoData)
+    const [hydrated, setHydrated] = useState(false);
 
     const handleSlideChange = () => {
         const audioEl = document.querySelectorAll('audio')
@@ -27,7 +27,17 @@ export default function SwiperComponent({ children, dinoData }: { children?: Rea
         });
     }
 
-    return <>
+    const shuffleArray = (array: Dino[]) => {
+        const arr = array.sort(() => .5 - Math.random())
+        return arr
+    }
+    const shuffledDinoData = shuffleArray(dinoData)
+    useEffect(() => {
+        setHydrated(true)
+        setDinosArr(shuffledDinoData)
+    }, [])
+
+    return hydrated && (<>
         <Swiper
             onSlideChange={() => handleSlideChange()}
             scrollbar={{ hide: true, draggable: true }}
@@ -84,5 +94,5 @@ export default function SwiperComponent({ children, dinoData }: { children?: Rea
             </SwiperSlide>
         })}
         </Swiper>
-    </>
+    </>)
 }
