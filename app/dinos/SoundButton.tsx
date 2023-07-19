@@ -3,7 +3,7 @@
 import ReactAudioPlayer from 'react-audio-player';
 import { BiPlayCircle } from "react-icons/bi";
 
-const AudioButton = ({ dinoSlug }: { dinoSlug: string }) => {
+const SoundButton = ({ dinoSlug }: { dinoSlug: string }) => {
     const handleAudioClick = (event: React.SyntheticEvent) => {
         const audioPlayer = event.currentTarget.previousElementSibling as HTMLAudioElement
 
@@ -27,4 +27,4 @@ const AudioButton = ({ dinoSlug }: { dinoSlug: string }) => {
     )
 }
 
-export default AudioButton
+export default SoundButton

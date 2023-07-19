@@ -2,10 +2,10 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import ReactAudioPlayer from 'react-audio-player';
 import { Dino } from "@/app/lib/interface";
+import pattern from "@/public/pattern.svg";
 import { TbMeat, TbLeaf } from "react-icons/tb";
-import { BiPlayCircle } from "react-icons/bi";
+
 // Import Swiper
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -13,6 +13,8 @@ import 'swiper/css/scrollbar';
 // import './styles.css';
 import { Scrollbar } from 'swiper/modules';
 import AudioButton from "./AudioButton";
+import SoundButton from "./SoundButton";
+import Pattern from "./Pattern";
 
 export default function SwiperComponent({ children, dinoData }: { children?: React.ReactNode, dinoData: Dino[] }) {
     const [dinosArr, setDinosArr] = useState<Dino[]>(dinoData)
@@ -42,7 +44,7 @@ export default function SwiperComponent({ children, dinoData }: { children?: Rea
                 const dinoSlug = dino.name.toLowerCase()
                 const dinoAudio = `audio-${dino.name.toLowerCase()}`
                 const dinoImgUrl = `/dino/${dinoSlug}.png`
-                const imgVisualStyles = `w-[200px] h-[200px] absolute -z-0 rounded-full border-4 border-gray-300 bg-${dino.color}-500`
+                const imgVisualStyles = `overflow-hidden w-[200px] h-[200px] absolute -z-0 rounded-full border-4 border-gray-300 bg-${dino.color}-500`
 
             return <SwiperSlide style={{ minHeight: '100%' }} key={dino._id}>
                 <div className={`border-2 border-${dino.color}-400 dino m-4 mx-auto p-4 px-4 rounded-md max-w-lg`}>
@@ -51,12 +53,7 @@ export default function SwiperComponent({ children, dinoData }: { children?: Rea
                         {(dinoSlug != 'nothosaurus') && (
                             <>
                                 <div className="w-1/2 mx-auto flex gap-2 justify-between">
-                                    <ReactAudioPlayer
-                                        src={`dino/${dinoSlug}.mp3`} volume={0.5}
-                                        className="block md:w-[300px]"
-                                    />
-                                    <button className="relative flex p-4 bg-teal-500 rounded-full shadow-md animate-play" onClick={handleAudioClick}><BiPlayCircle color='white' size={24} /></button>
-
+                                    <SoundButton dinoSlug={dinoSlug} />
                                     <AudioButton dinoAudio={dinoAudio} />
                                 </div>
                             </>
@@ -65,7 +62,9 @@ export default function SwiperComponent({ children, dinoData }: { children?: Rea
 
                     </header>
                     <div className="relative flex justify-center">
-                        <span className={imgVisualStyles} style={{ backgroundColor: `${dino.color}` }}></span>
+                        <span className={imgVisualStyles} style={{ backgroundColor: `${dino.color}` }}>
+                            <Pattern color={dino.color} />
+                        </span>
                         <Image src={dinoImgUrl} className="z-10" priority width={300} height={400} style={{ objectFit: "cover" }} alt={dino.name} />
                     </div>
 

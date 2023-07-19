@@ -32,17 +32,31 @@ body {
     )
     rgb(var(--background-start-rgb));
 } */
-.animate-aura {
-  animation: aura 1s ease-in-out infinite;
+.animate-play {
+  animation: play 1s ease-in-out infinite;
 }
 
-@keyframes aura {
+@keyframes play {
   0% {
     box-shadow: 0 0 0 -1px rgba(13, 194, 172, .75), 0 0 0 -1px rgba(13, 194, 172, .5), 0 0 0 -1px rgba(13, 194, 172, .25)
   }
 
   to {
-    box-shadow: 0 0 0 8px transparent, 0 0 0 16px transparent, 0 0 0 24px transparent
+    box-shadow: 0 0 0 5px transparent, 0 0 0 10px transparent, 0 0 0 15px transparent
+    }
+    }
+    
+    .animate-microphone {
+      animation: microphone 1s 0.5s ease-in-out infinite;
+    }
+    
+    @keyframes microphone {
+      0% {
+        box-shadow: 0 0 0 -1px rgb(250, 204, 21, .75), 0 0 0 -1px rgb(250, 204, 21, .5), 0 0 0 -1px rgb(250, 204, 21, .25)
+      }
+    
+      to {
+        box-shadow: 0 0 0 5px transparent, 0 0 0 10px transparent, 0 0 0 15px transparent
   }
 }
 
