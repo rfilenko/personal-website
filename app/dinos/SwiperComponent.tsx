@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react";
+
 import Image from "next/image";
 import { Dino } from "@/app/lib/interface";
 import { TbMeat, TbLeaf } from "react-icons/tb";
@@ -14,6 +15,7 @@ import { Scrollbar } from 'swiper/modules';
 import AudioButton from "./AudioButton";
 import SoundButton from "./SoundButton";
 import Pattern from "./Pattern";
+import VideoPlayer from "./VideoPlayer";
 
 export default function SwiperComponent({ children, dinoData }: { children?: React.ReactNode, dinoData: Dino[] }) {
     const [dinosArr, setDinosArr] = useState<Dino[]>(dinoData)
@@ -31,13 +33,14 @@ export default function SwiperComponent({ children, dinoData }: { children?: Rea
         const arr = array.sort(() => .5 - Math.random())
         return arr
     }
+
     const shuffledDinoData = shuffleArray(dinoData)
     useEffect(() => {
         setHydrated(true)
         setDinosArr(shuffledDinoData)
     }, [])
 
-    return hydrated && (<>
+    return hydrated && <>
         <Swiper
             onSlideChange={() => handleSlideChange()}
             scrollbar={{ hide: true, draggable: true }}
@@ -60,8 +63,8 @@ export default function SwiperComponent({ children, dinoData }: { children?: Rea
                         {(dinoSlug != 'nothosaurus') && (
                             <>
                                 <div className="w-full mx-auto flex gap-2 justify-between">
-                                    <SoundButton dinoSlug={dinoSlug} />
-                                    <AudioButton dinoAudio={dinoAudio} />
+                                    {dinoSlug && <SoundButton dinoSlug={dinoSlug} />}
+                                    {dinoAudio && <AudioButton dinoAudio={dinoAudio} />}
                                 </div>
                             </>
                         )
@@ -72,7 +75,7 @@ export default function SwiperComponent({ children, dinoData }: { children?: Rea
                         <span className={imgVisualStyles} style={{ backgroundColor: `${dino.color}` }}>
                             <Pattern color={dino.color} />
                         </span>
-                        <Image src={dinoImgUrl} className="z-10" priority width={300} height={400} style={{ objectFit: "cover" }} alt={dino.name} />
+                        <Image src={dinoImgUrl} className="z-10" priority width={300} height={400} style={{ objectFit: "cover", height: 'auto' }} alt={dino.name} />
                     </div>
 
                     <div className="dino-info flex flex-col gap-1 mt-4">
@@ -88,11 +91,10 @@ export default function SwiperComponent({ children, dinoData }: { children?: Rea
 
                         {dino.lived && <p><span className="font-bold">When it lived: </span> {dino.lived}</p>}
                         {dino.found && <p> <span className="font-bold">Found in: </span> {dino.found}</p>}
-
                     </div>
                 </div>
             </SwiperSlide>
         })}
         </Swiper>
-    </>)
+    </>
 }
