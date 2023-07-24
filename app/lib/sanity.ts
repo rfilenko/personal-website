@@ -24,6 +24,11 @@ export async function getJobData() {
     const data = await client.fetch(query)
     return data
 }
+export async function getProjectData() {
+    const query = `*[_type == 'project']`;
+    const data = await client.fetch(query)
+    return data
+}
 
 export async function getDinoData() {
     const query = `*[_type == 'dino']`;
