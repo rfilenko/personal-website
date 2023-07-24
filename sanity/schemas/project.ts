@@ -21,7 +21,22 @@ export default {
         {
             name: 'image',
             type: 'image',
-            title: 'Proejct Image',
+            title: 'Project Image',
+            options: {
+                hotspot: true // <-- Defaults to false
+            },
+            fields: [
+                {
+                  name: 'caption',
+                  type: 'string',
+                  title: 'Caption',
+                },
+                {
+                  name: 'attribution',
+                  type: 'string',
+                  title: 'Attribution',
+                }
+              ]
         },
         {
             name: 'tech',
