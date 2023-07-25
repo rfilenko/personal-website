@@ -74,7 +74,7 @@ export default function SwiperComponent({ children, dinoData }: { children?: Rea
                         <span className={imgVisualStyles} style={{ backgroundColor: `${dino.color}` }}>
                             <Pattern color={dino.color} />
                         </span>
-                        <Image src={dinoImgUrl} className="z-10" priority width={300} height={400} style={{ objectFit: "cover", height: 'auto' }} alt={dino.name} />
+                        <Image src={dinoImgUrl} className="z-10 w-full h-auto" priority width={300} height={400} style={{ objectFit: "cover", height: 'auto' }} alt={dino.name} />
                     </div>
 
                     <div className="dino-info flex flex-col gap-1 mt-4">
@@ -83,7 +83,8 @@ export default function SwiperComponent({ children, dinoData }: { children?: Rea
                             {(dino.color == 'green') ? <TbLeaf style={{ color: dino.color }} size={30} /> : (dino.color == 'red') ? <TbMeat style={{ color: dino.color }} size={30} /> : (dino.color == 'blue' || dino.color == 'gray') ? <TbLeaf style={{ color: dino.color }} size={30} /> : ""}
                         </p>
                         <p><span className="font-bold">Type of dinosaur:</span> {dino.type}</p>
-                        <p className="flex gap-2"> <span className="font-bold">Dimensions:</span>
+                        <p className="flex gap-0.5 flex-wrap"> 
+                            <span className="font-bold">Dimensions:</span>
                             {dino.dimensions}
                         </p>
                         <p><span className="font-bold">Food:</span>  {dino.food}</p>
