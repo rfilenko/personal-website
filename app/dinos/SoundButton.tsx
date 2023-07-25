@@ -5,7 +5,7 @@ import { BiPlayCircle } from "react-icons/bi";
 
 const SoundButton = ({ dinoSlug }: { dinoSlug: string }) => {
     const handleAudioClick = (event: React.SyntheticEvent) => {
-        const audioPlayer = event.currentTarget.previousElementSibling as HTMLAudioElement
+        const audioPlayer = event.currentTarget.parentNode?.previousSibling as HTMLAudioElement
 
         if (audioPlayer && audioPlayer.localName == 'audio') {
             audioPlayer.play()
@@ -22,7 +22,10 @@ const SoundButton = ({ dinoSlug }: { dinoSlug: string }) => {
                 src={`dino/${dinoSlug}.mp3`} volume={0.5}
                 className="block md:w-[300px]"
             />
-            <button className="relative flex p-4 bg-teal-500 rounded-full shadow-md animate-play" onClick={handleAudioClick}><BiPlayCircle color='white' size={24} /></button>
+            <div className="relative overflow-hidden w-[3.2rem] h-[3.2rem] flex justify-center items-center p-4 shadow-md animate-play rounded-full ">
+                <button className="relative flex p-4 bg-teal-500 rounded-full" onClick={handleAudioClick}><BiPlayCircle color='white' size={24} /></button>
+            </div>
+            
         </>
     )
 }

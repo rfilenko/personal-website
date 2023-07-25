@@ -5,7 +5,7 @@ import { AiOutlineAudio } from "react-icons/ai";
 
 const AudioButton = ({ dinoAudio }: { dinoAudio: string }) => {
     const handleAudioClick = (event: React.SyntheticEvent) => {
-        const audioPlayer = event.currentTarget.previousElementSibling as HTMLAudioElement
+        const audioPlayer = event.currentTarget.parentNode?.previousSibling as HTMLAudioElement
 
         if (audioPlayer && audioPlayer.localName == 'audio') {
             audioPlayer.play()
@@ -17,7 +17,9 @@ const AudioButton = ({ dinoAudio }: { dinoAudio: string }) => {
                 src={`dino/${dinoAudio}.mp3`} volume={1}
                 className="block md:w-[300px]"
             />
-            <button className="relative flex p-4 bg-yellow-400 rounded-full shadow-md animate-microphone" onClick={handleAudioClick}><AiOutlineAudio color='white' size={24} /></button>
+            <div className="relative overflow-hidden w-[3.2rem] h-[3.2rem] flex justify-center items-center p-4 shadow-md animate-microphone rounded-full ">
+                <button className="absolute flex justify-center items-center  bg-yellow-400 top-0 left-0 w-full h-full outline-0" onClick={handleAudioClick}><AiOutlineAudio color='white' size={24} className=''/></button>
+            </div>
         </>
     )
 }
