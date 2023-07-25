@@ -44,6 +44,11 @@ export default {
             title: 'Found',
         },
         {
+            name: 'video',
+            type: 'url',
+            title: 'Video url',
+        },
+        {
             name: 'slug',
             type: 'slug',
             title: 'Slug',

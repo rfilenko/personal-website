@@ -1,7 +1,6 @@
 "use client"
 
 import { useState, useEffect } from "react";
-
 import { Dino } from "@/app/lib/interface";
 
 // Import Swiper
@@ -13,6 +12,7 @@ import { Scrollbar } from 'swiper/modules';
 import DinoAudio from "./DinoAudio";
 import DinoVisual from "./DinoVisual";
 import DinoInfo from "./DinoInfo";
+import VideoPlayer from "./VideoPlayer";
 
 export default function SwiperComponent({ children, dinoData }: { children?: React.ReactNode, dinoData: Dino[] }) {
     const [dinosArr, setDinosArr] = useState<Dino[]>(dinoData)
@@ -31,7 +31,7 @@ export default function SwiperComponent({ children, dinoData }: { children?: Rea
         return arr
     }
 
-    const shuffledDinoData = shuffleArray(dinoData)
+    const shuffledDinoData = dinoData
     useEffect(() => {
         setHydrated(true)
         setDinosArr(shuffledDinoData)
@@ -48,22 +48,22 @@ export default function SwiperComponent({ children, dinoData }: { children?: Rea
         >
         {children}
             {dinosArr && dinosArr.map((dino: Dino) => {
-                const dinoSlug = dino.name.toLowerCase()
+                
+                return <SwiperSlide style={{ minHeight: '100%' }} key={dino._id}>
+                    <div className={`border-2 border-${dino.color}-400 dino m-4 mx-auto p-4 px-4 rounded-md max-w-lg`}>
+                        <header className="flex flex-col gap-2 items-center mb-4">
+                            <h2 className="font-extrabold text-2xl">{dino.name}</h2>
 
+                            <DinoAudio dino={dino}/>
+                        </header>
 
-            return <SwiperSlide style={{ minHeight: '100%' }} key={dino._id}>
-                <div className={`border-2 border-${dino.color}-400 dino m-4 mx-auto p-4 px-4 rounded-md max-w-lg`}>
-                    <header className="flex flex-col gap-2 items-center mb-4">
-                        <h2 className="font-extrabold text-2xl">{dino.name}</h2>
+                
+                        <DinoVisual dino={dino}/>
+                        <DinoInfo dino={dino}/>
 
-                        <DinoAudio dino={dino}/>
-                    </header>
-
-               
-                    <DinoVisual dino={dino}/>
-                    <DinoInfo dino={dino}/>
-                </div>
-            </SwiperSlide>
+                        {dino.video && <VideoPlayer video={dino.video} />}
+                    </div>
+                </SwiperSlide>
         })}
         </Swiper>
     </>
