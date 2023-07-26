@@ -17,12 +17,19 @@ export default function ResumeHeader() {
     return (
         <header className='flex text-white w-full justify-center py-4'>
             <nav>
-                <ul className='flex justify-center gap-4'>
-                    {navItems.map(item => {
+                <ul className='flex flex-wrap justify-center gap-4'>
+                    {navItems.map((item,index) => {
                         return <li key={item}>
-                            <a href={`#section-${item}`} className='capitalize' onClick={handleScroll}>{item}</a>
+                            <span className="font-semibold text-xs text-teal-300 mr-1">0{index + 1}.</span><a href={`#section-${item}`} className='capitalize' onClick={handleScroll}>
+                                {item}
+                            </a>
                         </li>
                     })}
+
+                    <li>
+                        <a href='/roman-filenko-cv.pdf' target="_blank" className='capitalize flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300 text-teal-300 hover:text-white hover:bg-teal-500 transition'>
+                        resume</a>
+                    </li>
                 </ul>
             </nav>
         </header>
