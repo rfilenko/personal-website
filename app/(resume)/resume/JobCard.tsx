@@ -18,13 +18,13 @@ export default function JobCard({ job, jobVariant }: { job: Job, jobVariant: {} 
     return <motion.article className='job-item mb-8' variants={jobVariant} key={job._id} whileHover={{
         position: 'relative',
         zIndex: 100,
-        scale: [1, 1.05, 1.02, 1],
-        rotate: [0, 0.5, -0.5, 0],
+        scale: [1, 1.075, 1.035, 1],
+        rotate: [0, 0.65, -0.65, 0],
         transition: {
             duration: .35
         }
     }}>
-        <div className="group relative grid pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50" >
+        <div className="group relative grid pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-85 h-full">
             <div className="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-slate-800/50 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover:drop-shadow-lg">
             </div>
             <header className="z-10 mb-0 mt-1 text-xs font-semibold uppercase tracking-wide text-slate-500 sm:col-span-2" aria-label={job.date}>{job.date}</header>

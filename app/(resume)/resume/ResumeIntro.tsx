@@ -50,7 +50,7 @@ export default function ResumeIntro() {
             <motion.h2 variants={introItem} className='font-sans text-3xl leading-10 font-bold text-teal-400'>Frontend Developer
                 <span className='text-white'>.</span>
             </motion.h2>
-            <motion.p variants={introItem} className='text-gray-200'>I code and build stuff on internet, create digital experiences for the web.</motion.p>
+            <motion.p variants={introItem} className='text-gray-200'>I like to code and build stuff on internet, create digital experiences for the web.</motion.p>
         </motion.div>
 
         <motion.div key="image" initial="hidden" animate="visible" variants={heroImage} transition={{ duration: 0.5 }} className='about-image absolute top-8 md:top-0 right-0 z-10 w-[225px] md:w-[300px] rounded-full overflow-hidden md:relative'>
