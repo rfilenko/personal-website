@@ -33,7 +33,7 @@ export default function RecipesBlock({ recipesData }: { recipesData: Recipe[] })
 
             <Filter recipesData={recipes} handleClick={handleFilterClick} />
 
-            {isFiltered && <button className="ml-auto text-white bg-orange-500 hover:bg-orange-700 focus:ring-4 focus:ring-orange-300 font-medium rounded-lg text-sm px-3 py-1.5 mr-2 mb-2 dark:bg-teal-400 dark:hover:bg-teal-600 focus:outline-none dark:focus:ring-teal-700" onClick={handleClearClick}>Clear</button>}
+            {isFiltered && <button className="align-start ml-auto text-white bg-orange-500 hover:bg-orange-700 focus:ring-4 focus:ring-orange-300 font-medium rounded-lg text-sm px-3 py-1.5 mr-2 mb-2 dark:bg-teal-400 dark:hover:bg-teal-600 focus:outline-none dark:focus:ring-teal-700" onClick={handleClearClick}>Clear</button>}
         </div>
 
         <RecipesList recipesData={recipes} />
