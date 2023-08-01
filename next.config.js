@@ -4,7 +4,7 @@ const nextConfig = {
     // concurrentFeatures: true,
     productionBrowserSourceMaps: false,
     optimizeFonts: false,
-    minify: false,
+    // minify: false,
     images: {
         domains: ["cdn.sanity.io"],
     },
