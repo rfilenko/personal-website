@@ -10,12 +10,10 @@ export const metadata = {
 
 export default async function Home() {
     const recipesData = await getRecipeData() as Recipe[]
-    console.log(recipesData);
-
 
     return (
-        <div className="">
+        <>
             <RecipesBlock recipesData={recipesData} />
-        </div>
+        </>
     )
 }

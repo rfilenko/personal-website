@@ -19,6 +19,7 @@ export interface Recipe {
     title: string;
     overview: string;
     preparation: string;
+    lang: string;
     content: any;
     ingridients: any;
     instructions: [string];

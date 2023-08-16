@@ -19,6 +19,11 @@ export default {
             title: 'Preparation',
         },
         {
+            name: 'lang',
+            type: 'string',
+            title: 'Language',
+        },
+        {
             name: 'slug',
             type: 'slug',
             title: 'Slug',

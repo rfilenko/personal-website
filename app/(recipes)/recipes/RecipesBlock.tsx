@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { Recipe } from '@/app/lib/interface';
 import RecipesHeader from './RecipesHeader';
 import Filter from './Filter';
+import LangFilter from './LangFilter';
 import RecipesList from './RecipesList';
 
 export default function RecipesBlock({ recipesData }: { recipesData: Recipe[] }) {
@@ -22,6 +23,13 @@ export default function RecipesBlock({ recipesData }: { recipesData: Recipe[] })
         setRecipes(filterred)
     }
 
+    const handleLangClick = (val: string) => {
+        const filterred = recipesData.filter(item => item.lang.includes(val))
+
+        setIsFiltered(true)
+        setRecipes(filterred)
+    }
+
     const handleClearClick = () => {
         setRecipes(recipesTotal)
         setIsFiltered(false)
@@ -29,11 +37,12 @@ export default function RecipesBlock({ recipesData }: { recipesData: Recipe[] })
 
     return <>
         <RecipesHeader recipesData={recipes} isFiltered={isFiltered} />
-        <div className='flex gap-2 justify-between'>
+        <div className='flex gap-2 justify-between flex-wrap'>
 
             <Filter recipesData={recipes} handleClick={handleFilterClick} />
+            <LangFilter recipesData={recipes} handleClick={handleLangClick} />
 
-            {isFiltered && <button className="align-start ml-auto text-white bg-orange-500 hover:bg-orange-700 focus:ring-4 focus:ring-orange-300 font-medium rounded-lg text-sm px-3 py-1.5 mr-2 mb-2 dark:bg-teal-400 dark:hover:bg-teal-600 focus:outline-none dark:focus:ring-teal-700" onClick={handleClearClick}>Clear</button>}
+            {isFiltered && <button className="align-start w-auto text-white bg-orange-500 hover:bg-orange-700 focus:ring-4 focus:ring-orange-300 font-medium rounded-lg text-sm px-3 py-1.5 mr-2 mb-2 dark:bg-teal-400 dark:hover:bg-teal-600 focus:outline-none dark:focus:ring-teal-700" onClick={handleClearClick}>Clear</button>}
         </div>
 
         <RecipesList recipesData={recipes} />
