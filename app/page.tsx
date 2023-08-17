@@ -1,19 +1,44 @@
+import { getJobData, getProjectData } from '@/app/lib/sanity';
+import { Job, Project } from '@/app/lib/interface';
+
+const position = `</FrontendDeveloper>`
 export const metadata = {
-	title: "Coming soon page",
-	description: "Project is loading...",
+	title: `Roman Filenko-${position}`,
+	description: "Simple usefull HomeApp",
 };
 
+import ResumeSection from '@/app/components/resume/ResumeSection'
+import ResumeHeader from "@/app/components/resume/ResumeHeader";
+import ResumeFooter from '@/app/components/resume/ResumeFooter';
+import ResumeIntro from '@/app/components/resume/ResumeIntro';
+import SectionExperience from '@/app/components/resume/SectionExperience';
+import SectionProjects from '@/app/components/resume/SectionProjects';
+
 export default async function Home() {
+	const jobData = await getJobData() as Job[]
+	const projectData = await getProjectData() as Project[]
+
 	return (
-		<div className="bg-visual" style={{
-			'background': 'radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(38,122,78,1) 73%)'
-		}}>
-			<main className="relative flex flex-col items-center justify-center w-full h-full overflow-hidden">
-				<div className='font-semibold flex flex-col gap-2 justify-between items-center'>
-					<h1 className='my-2 font-sans text-4xl md:text-6xl text-white'>Coming soon</h1>
-					<div className='text-base text-gray-100'>Something is coming up... Stay tuned</div>
-				</div>
-			</main>
+		<div className="bg-slate-900 h-full selection:bg-gray-50">
+			<div className="pointer-events-none fixed inset-0 z-30 transition duration-300 lg:absolute" style={{ background: 'radial-gradient(600px at 1008px 241px, rgba(29, 78, 216, 0.15), transparent 80%)' }}></div>
+			<div className='md:max-w-5xl mx-auto relative h-full w-full py-2 md:py-8 px-4 md:px-8 text-white overflow-x-hidden'>
+				<ResumeHeader />
+
+				<main>
+					<ResumeSection sectionId="section-about" className="about relative grid md:grid-cols-2 place-items-center py-4 px-2 md:px-16 min-h-[24rem]">
+						<ResumeIntro />
+					</ResumeSection>
+
+					<SectionExperience jobData={jobData} />
+					<SectionProjects projectData={projectData} />
+
+					{/* <ResumeSection sectionId="section-contact">
+                <h2 className='mb-8 text-2xl font-sans font-semibold'>Contact</h2>
+            </ResumeSection> */}
+				</main>
+
+				<ResumeFooter />
+			</div>
 		</div>
 	)
 }

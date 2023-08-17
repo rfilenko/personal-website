@@ -36,9 +36,7 @@ export default function SectionExperience({ jobData }: { jobData: Job[] }) {
                 <h2 className='mb-2 md:mb-8 text-2xl font-sans font-semibold'>Experience</h2>
 
                 <div className='grid sm:grid-cols-2 sm:gap-8 md:gap-12'>
-                    {jobData.map((job, index) => <>
-                        <JobCard job={job} key={index} jobVariant={jobVariant} />
-                    </>)}
+                    {jobData.map(job => <JobCard job={job} key={job.company} jobVariant={jobVariant} />)}
                 </div>
             </motion.div>
         </ResumeSection>
