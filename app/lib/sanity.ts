@@ -25,7 +25,7 @@ export async function getJobData() {
     return data
 }
 export async function getProjectData() {
-    const query = `*[_type == 'project']`;
+    const query = `*[_type == 'project'] | order(_createdAt asc)`;
     const data = await client.fetch(query)
     return data
 }

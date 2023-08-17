@@ -44,6 +44,7 @@ export interface Job {
 export interface Project {
     name: string;
     link: string;
+    githubLink: string;
     image: string;
     description: string;
     tech: [string];

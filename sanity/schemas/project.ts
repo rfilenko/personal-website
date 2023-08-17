@@ -14,6 +14,11 @@ export default {
             title: 'Link',
         },
         {
+            name: 'githubLink',
+            type: 'string',
+            title: 'Github',
+        },
+        {
             name: 'description',
             type: 'string',
             title: 'Description',
@@ -27,16 +32,16 @@ export default {
             },
             fields: [
                 {
-                  name: 'caption',
-                  type: 'string',
-                  title: 'Caption',
+                    name: 'caption',
+                    type: 'string',
+                    title: 'Caption',
                 },
                 {
-                  name: 'attribution',
-                  type: 'string',
-                  title: 'Attribution',
+                    name: 'attribution',
+                    type: 'string',
+                    title: 'Attribution',
                 }
-              ]
+            ]
         },
         {
             name: 'tech',
