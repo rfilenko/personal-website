@@ -11,7 +11,7 @@
   --tw-gradient-to: #111;
   --tw-gradient-from: #1a1a1a;
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
---swiper-pagination-bottom: 20px
+  --swiper-pagination-bottom: 20px
 }
 
 /* 
@@ -43,20 +43,20 @@ body {
 
   to {
     box-shadow: 0 0 0 5px transparent, 0 0 0 10px transparent, 0 0 0 15px transparent
-    }
-    }
-    
-    .animate-microphone {
-      animation: microphone 1s 0.5s ease-in-out infinite;
-    }
-    
-    @keyframes microphone {
-      0% {
-        box-shadow: 0 0 0 -1px rgb(250, 204, 21, .75), 0 0 0 -1px rgb(250, 204, 21, .5), 0 0 0 -1px rgb(250, 204, 21, .25)
-      }
-    
-      to {
-        box-shadow: 0 0 0 5px transparent, 0 0 0 10px transparent, 0 0 0 15px transparent
+  }
+}
+
+.animate-microphone {
+  animation: microphone 1s 0.5s ease-in-out infinite;
+}
+
+@keyframes microphone {
+  0% {
+    box-shadow: 0 0 0 -1px rgb(250, 204, 21, .75), 0 0 0 -1px rgb(250, 204, 21, .5), 0 0 0 -1px rgb(250, 204, 21, .25)
+  }
+
+  to {
+    box-shadow: 0 0 0 5px transparent, 0 0 0 10px transparent, 0 0 0 15px transparent
   }
 }
 
@@ -64,6 +64,7 @@ body {
   height: auto;
   align-self: stretch;
 }
+
 .main-footer:before {
   content: '';
   position: absolute;
@@ -154,6 +155,16 @@ main {
     width: 30rem;
     height: 30rem;
   }
+}
+
+/* toaster */
+.toaster .toaster-success,
+.toaster .toaster-error {
+  background-color: rgb(45 212 191 / 0.1);
+  color: #B9BDCF;
+  --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
 /* challenge */
