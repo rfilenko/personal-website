@@ -53,8 +53,8 @@ export default function ResumeIntro() {
             <motion.p variants={introItem} className='text-gray-200'>I like to code and build stuff on internet, create digital experiences for the web.</motion.p>
         </motion.div>
 
-        <motion.div key="image" initial="hidden" animate="visible" variants={heroImage} transition={{ duration: 0.5 }} className='about-image absolute top-8 md:top-0 right-0 z-10 w-[225px] md:w-[300px] rounded-full overflow-hidden md:relative'>
-            <Image src="/handsome.jpg" width={300} height={350} priority className="w-full h-auto" alt="Handsome me" />
+        <motion.div key="image" initial="hidden" animate="visible" variants={heroImage} transition={{ duration: 0.5 }} className='about-image absolute top-8 md:top-0 right-0 z-10 w-[225px] md:w-[300px] aspect-square rounded-full overflow-hidden md:relative'>
+            <Image src="/me.jpg" width={300} height={300} priority className="w-full h-auto" alt="Handsome me" />
         </motion.div>
     </>
 }
