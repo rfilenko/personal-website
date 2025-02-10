@@ -11,7 +11,7 @@ import { FaGithub } from 'react-icons/fa6';
 
 export default function SectionExperience({ projectData }: { projectData: Project[] }) {
     return <>
-        <ResumeSection sectionId="section-projects">
+        <ResumeSection sectionId="section-projects" className='pt-6'>
             <h2 className='mb-8 text-2xl font-sans font-semibold'>Projects</h2>
 
             <div className='grid sm:grid-cols-3 sm:gap-8 md:gap-12'>

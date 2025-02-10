@@ -43,7 +43,7 @@ export default function ResumeHeader() {
 
                     <li>
                         <a href='/roman-filenko-cv.pdf' target="_blank" className='capitalize  rounded-full bg-teal-400/10 px-3 py-1 w-16 flex items-center justify-center text-xs font-medium leading-5 text-teal-300 hover:text-white hover:bg-teal-500 transition'>
-                            CV</a>
+                            My CV</a>
                     </li>
                 </motion.ul>
             </nav>

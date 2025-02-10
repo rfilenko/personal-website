@@ -32,7 +32,7 @@ export default function SectionExperience({ jobData }: { jobData: Job[] }) {
 
 	return (
 		<>
-			<ResumeSection sectionId="section-experience">
+			<ResumeSection sectionId="section-experience" className='pt-6'>
 				<motion.div
 					key="experience"
 					initial="hidden"
